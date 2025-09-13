@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <meta charset="UTF-8">
@@ -48,7 +57,7 @@
             <i class="bi bi-person-circle" style="font-size: 24px;"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
-            <li><a class="dropdown-item" href="/login">Login</a></li>
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
             <li><a class="dropdown-item" href="/logout">Logout</a></li>
             <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
             <li><a class="dropdown-item" href="/account-settings">Account Settings</a></li>
@@ -60,40 +69,109 @@
 </nav>
 
 
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/login" method="POST">
+          <div class="mb-3">
+            <label for="mobileEmail" class="form-label">Mobile or Email</label>
+            <input type="text" class="form-control" id="mobileEmail" name="mobileEmail" placeholder="Enter mobile or email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+          </div>
+          <div class="d-flex justify-content-between mb-3">
+  <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Create Account</a>
+  <a href="#">Forgot Password?</a>
+</div>
 
-<section class="hero-section">
+          <button type="submit" class="btn btn-success w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div class="hero-content">
-
-            <div class="text-slider">
-                <div class="text-slider-track">
-                    <div class="slider-item">
-                        <p class="hero-subtitle-small">Import Anything <br/>Anywhere Around <br/>the world</p>
-                        <p class="hero-subtitle">We will deliver you at your door <br/>step Across Pakistan</p>
-                    </div>
-                    <!-- Duplicate for seamless looping
-                    <div class="slider-item">
-                        <p class="hero-subtitle-small">Import Anything <br/>Anywhere Around<br/> the world</p>
-                        <p class="hero-subtitle">We will deliver you at your door <br/>step Across Pakistan</p>
-                    </div> -->
-                </div>
-            </div>
-
-            <div class="cta-wrapper">
-                <a href="#" class="cta-button openForm">Order Now</a>
-                <div class="slider-arrows">
-                    <span class="arrow arrow-left">&larr;</span>
-                    <span class="arrow arrow-right">&rarr;</span>
-                </div>
-              </div>
-        </div>
-
-     <div class="right-image">
-   <img src="assets/images/couch.png" alt="Hero Decoration" style="transform: translateY(-60px);">
+<!-- Create Account Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="signupModalLabel">Create Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/signup" method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile number" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email (Optional)</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">City / Country</label>
+            <select class="form-select" id="city" name="city" required>
+              <option value="Pakistan" selected>Pakistan</option>
+              <option value="USA">USA</option>
+              <option value="UK">UK</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-    </section>
+
+
+<!-- Hero Section -->
+<section class="hero-section">
+
+    <div class="hero-content">
+    <div class="text-slider">
+        <div class="text-slider-track">
+            <div class="slider-item">
+                <p class="hero-subtitle-small">Import Anything <br/>Anywhere Around <br/>the world</p>
+                <p class="hero-subtitle">We will deliver you at your door <br/>step Across Pakistan</p>
+                <div class="cta-wrapper">
+                    <a href="#" class="cta-button" data-toggle="modal" data-target="#exampleModal">Order Now</a>
+                    <div class="slider-arrows">
+                        <span class="arrow arrow-left">&larr;</span>
+                        <span class="arrow arrow-right">&rarr;</span>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+    <div class="right-image">
+        <img src="assets/images/couch.png" alt="Hero Decoration">
+    </div>
+
+</section>
+
+
+
+
 
 
 <!-- About Us -->
@@ -109,7 +187,7 @@
     <div class="step-card">
         <div class="step-number">1</div>
         <img src="assets/images/cart-icon.png" alt="Step 1 Logo" class="step-logo">
-        <div class="step-content">
+        <div class="card-content">
             <h3>Choose your product</h3>
             <p>Select the items you want to purchase.</p>
         </div>
@@ -118,7 +196,7 @@
     <div class="step-card">
         <div class="step-number">2</div>
         <img src="assets/images/writting-icon.png" alt="Step 2 Logo" class="step-logo">
-        <div class="step-content">
+        <div class="card-content">
             <h3>We process your order</h3>
             <p>Our team verifies and prepares your order.</p>
         </div>
@@ -127,7 +205,7 @@
     <div class="step-card">
         <div class="step-number">3</div>
         <img src="assets/images/man-icon.png" alt="Step 3 Logo" class="step-logo">
-        <div class="step-content">
+        <div class="card-content">
             <h3>We handle the purchase and international shipping</h3>
             <p>Our team manages everything from buying to customs clearance.</p>
         </div>
@@ -150,7 +228,11 @@
 </div>
 <!-- Place Order Button -->
 <div class="order-btn-container">
-    <a href="#order" class="place-order-btn openForm">Place an Order</a>
+    <!-- <a href="#order" class="place-order-btn openForm">Place an Order</a> -->
+   <!-- <a href="#order" class="place-order-btn" onclick="openModal()">Place an Order </a> -->
+    <a href="#order" class="place-order-btn" data-toggle="modal" data-target="#exampleModal">
+  Place an Order
+</a>
 </div>
 </section>
         
@@ -245,83 +327,80 @@
     </div>
     </section>
 
-
+<!-- Choose us -->
 <section id="choose-us" class="why-choose-us">
-    <div class="choose-container why-choose-us-grid">
-        <!-- Left Side: Feature Cards -->
-        <div class="features-wrapper">
-            <h1 class="section-title">Why Choose Us</h1>
-            <div class="features-container">
-    <div class="feature-box">
-        <!-- Top-left custom icon -->
-        <div class="feature-top-icon">
-            <img src="assets/images/experience.png" alt="Icon 1">
-        </div>
+  <div class="choose-container">
+      <!-- Section Title -->
+      <h1 class="section-title" data-aos="fade-up">Why Choose Us</h1>
 
-        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-        <h2 class="feature-title">Expertise & Experience</h2>
-        <p class="feature-description">Over a decade of experience in shipping from the USA to Pakistan.</p>
-    </div>
+      <div class="why-choose-us-grid">
+          
+          <!-- Left Side: Feature Cards -->
+          <div class="features-wrapper" data-aos="fade-right">
+              <div class="features-container">
+                  <div class="feature-box" data-aos="zoom-in" data-aos-delay="100">
+                      <div class="feature-top-icon">
+                          <img src="assets/images/experience.png" alt="Icon 1">
+                      </div>
+                      <h2 class="feature-title">Expertise & Experience</h2>
+                      <p class="feature-description">Over a decade of experience in shipping from the USA to Pakistan.</p>
+                  </div>
 
-    <div class="feature-box">
-        <div class="feature-top-icon">
-            <img src="assets/images/service.png" alt="Icon 2">
-        </div>
+                  <div class="feature-box" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="feature-top-icon">
+                          <img src="assets/images/service.png" alt="Icon 2">
+                      </div>
+                      <h2 class="feature-title">Dedicated Specialists</h2>
+                      <p class="feature-description">Specialized team focused exclusively on serving Pakistani customers.</p>
+                  </div>
 
-        <div class="feature-icon"><i class="fas fa-users"></i></div>
-        <h2 class="feature-title">Dedicated Specialists</h2>
-        <p class="feature-description">Specialized team focused exclusively on serving Pakistani customers.</p>
-    </div>
+                  <div class="feature-box" data-aos="zoom-in" data-aos-delay="300">
+                      <div class="feature-top-icon">
+                          <img src="assets/images/x.png" alt="Icon 3">
+                      </div>
+                      <h2 class="feature-title">Contact Us</h2>
+                      <p class="feature-description">Comprehensive Services. End-to-end solutions: purchasing, packing, shipping, and customs handling.</p>
+                  </div>
 
-    <div class="feature-box">
-        <div class="feature-top-icon">
-            <img src="assets/images/x.png" alt="Icon 3">
-        </div>
+                  <div class="feature-box" data-aos="zoom-in" data-aos-delay="400">
+                      <div class="feature-top-icon">
+                          <img src="assets/images/stamp.png" alt="Icon 4">
+                      </div>
+                      <h2 class="feature-title">Proven Track Record</h2>
+                      <p class="feature-description">Number one in Pakistan with thousands of satisfied customers.</p>
+                  </div>
+              </div>
 
-        <div class="feature-icon"><i class="fas fa-headset"></i></div>
-        <h2 class="feature-title">Contact Us</h2>
-        <p class="feature-description">Comprehensive Services. End-to-end solutions: purchasing, packing, shipping, and customs handling.</p>
-    </div>
+              <!-- Contact Button -->
+              <button class="feature-btn openForm" data-aos="fade-up" data-aos-delay="500">Contact Us</button>
+          </div>
 
-    <div class="feature-box">
-        <div class="feature-top-icon">
-            <img src="assets/images/stamp.png" alt="Icon 4">
-        </div>
-
-        <div class="feature-icon"><i class="fas fa-trophy"></i></div>
-        <h2 class="feature-title">Proven Track Record</h2>
-        <p class="feature-description">Number one in Pakistan with thousands of satisfied customers.</p>
-    </div>
-</div>
-<!-- Button added -->
-    <button class="feature-btn openForm">Contact Us</button>
-        </div>
-
-      <!-- Right Side: Video Section -->
-<div class="right-video">
-    <div class="video-card">
-        <div class="video-frame">
-            <iframe width="100%" height="100%" 
-                src="https://www.youtube.com/embed/aqz-KE-bpKQ" 
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>  
-    </div>
- 
-</div>
-
-    </div>
+          <!-- Right Side: Video Section -->
+          <div class="right-video" data-aos="fade-left">
+              <div class="video-card">
+                  <div class="video-frame">
+                      <iframe width="100%" height="100%" 
+                          src="https://www.youtube.com/embed/aqz-KE-bpKQ" 
+                          title="YouTube video player" frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                      </iframe>
+                  </div>  
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 
+
+
 <!-- Review Section -->
- <section class="reviews-section">
-  <h2>PkShip Reviews</h2>
+<section class="reviews-section">
+  <h2 data-aos="fade-up">PkShip Reviews</h2>
   <div class="reviews-container">
 
     <!-- Facebook -->
-    <div class="review-box">
+    <div class="review-box" data-aos="fade-up" data-aos-delay="100">
       <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="icon">
       <h3>Reviews on Facebook</h3>
       <p>96% recommend (324 Reviews)</p>
@@ -329,7 +408,7 @@
     </div>
 
     <!-- Google -->
-    <div class="review-box">
+    <div class="review-box" data-aos="fade-up" data-aos-delay="200">
       <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google" class="icon">
       <h3>Reviews on Google</h3>
       <p>4.3 Ratings on Google (237 Reviews)</p>
@@ -337,7 +416,7 @@
     </div>
 
     <!-- Media -->
-    <div class="review-box">
+    <div class="review-box" data-aos="fade-up" data-aos-delay="300">
       <img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="Media" class="icon">
       <h3>Pkship.com in the Media</h3>
       <p>Our coverage in the local media</p>
@@ -348,25 +427,30 @@
 </section>
 
 <!-- Stats Section -->
- <section class="stats-section">
-  <h2>PkShip at a glance</h2>
+<section class="stats-section">
+  <h2 data-aos="fade-up">PkShip at a glance</h2>
   <div class="stats-container">
-    <div class="stat-box">
+
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
       <h3>+10 years</h3>
       <p>In the business</p>
     </div>
-    <div class="stat-box">
+
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
       <h3>+50k</h3>
       <p>Active Customers</p>
     </div>
-    <div class="stat-box">
+
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
       <h3>+100k</h3>
       <p>Successful Shipments</p>
     </div>
-    <div class="stat-box">
+
+    <div class="stat-box" data-aos="fade-up" data-aos-delay="400">
       <h3>+120k</h3>
       <p>Queries Responded</p>
     </div>
+
   </div>
 </section>
 
@@ -525,8 +609,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-
-
 <!-- Contact Section -->
 <section id="contact">
   <div class="contact-container">
@@ -621,60 +703,525 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>
 
-   <!-- Order Form Modal -->
-<div id="orderFormModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
+ 
 
-    <!-- Steps -->
-    <div class="form-steps">
-      <div class="step active" data-step="1">1. Add Products</div>
-      <div class="step" data-step="2">2. Shipping Info</div>
-      <div class="step" data-step="3">3. Submit Order</div>
+
+
+
+
+   
+    
+
+    <!-- Button to trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Open Modal
+    </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="pop-up-cont">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <form class="col-lg-9 col-sm-11">
+                            <div class="form-group">
+                                <input type="text" class="place order" id="subscribe" placeholder="Paste your product link here">
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="steps-cont">
+                        <ul> 
+                            <li class="active-step" data-step="1"><span>1</span> Add Products</li>
+                            <li data-step="2"><span>2</span> Shipping info</li>
+                            <li data-step="3"><span>3</span> Submit Order</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <!-- Step 1: Add Products -->
+                        <div class="step-content active" id="step1">
+                            <div class="table-responsive">
+                                <table class="c">
+                                    <thead>
+                                        <tr>
+                                            <th>product</th>
+                                            <th>quantity</th>
+                                            <th colspan="2">Comments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
+                                                <a href="#" class="product-dtl">
+                                                    <img src="https://via.placeholder.com/60" alt="product">
+                                                    <p>Leather belt <span>Size: M <br> Color: Cognac brown</span></p>
+                                                </a>
+                                            </td>
+                                            <td class="small-pane">	
+                                                <div class="qty">
+                                                    <span class="minus">-</span>
+                                                    <input type="number" class="count" name="qty" value="1">
+                                                    <span class="plus">+</span>
+                                                </div>
+                                            </td>
+                                            <td colspan="2">
+                                                <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
+                                                <a href="#" class="product-dtl">
+                                                    <img src="https://via.placeholder.com/60" alt="product">
+                                                    <p>Leather boots <span>Size: 9 <br> Color: Black</span></p>
+                                                </a>
+                                            </td>
+                                            <td class="small-pane">	
+                                                <div class="qty">
+                                                    <span class="minus">-</span>
+                                                    <input type="number" class="count" name="qty" value="1">
+                                                    <span class="plus">+</span>
+                                                </div>
+                                            </td>
+                                            <td colspan="2">
+                                                <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
+                                                <a href="#" class="product-dtl">
+                                                    <img src="https://via.placeholder.com/60" alt="product">
+                                                    <p>Basic T-Shirt <span>Size: L <br> Color: White</span></p>
+                                                </a>
+                                            </td>
+                                            <td class="small-pane">	
+                                                <div class="qty">
+                                                    <span class="minus">-</span>
+                                                    <input type="number" class="count" name="qty" value="3">
+                                                    <span class="plus">+</span>
+                                                </div>
+                                            </td>
+                                            <td colspan="2">
+                                                <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Shipping Info -->
+<div class="step-content" id="step2">
+    <h3>Shipping Information</h3>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="text" id="mobile" placeholder="Enter your mobile number">
+        </div>
     </div>
 
-    <!-- Step 1 -->
-    <div class="step-content" data-step="1">
-      <div id="emptyMessage">
-        <p>No products added yet.</p>
-      </div>
-      <table class="product-table" style="display:none;">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Comments</th>
-          </tr>
-        </thead>
-        <tbody id="productList"></tbody>
-      </table>
-      <button class="btn-next" style="display:none;">Next</button>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" placeholder="Enter your city">
     </div>
 
-    <!-- Step 2 -->
-    <div class="step-content" data-step="2" style="display:none;">
-      <h3>Shipping Information</h3>
-      <input type="text" placeholder="Full Name"><br><br>
-      <input type="text" placeholder="Address"><br><br>
-      <input type="text" placeholder="City"><br><br>
-      <input type="text" placeholder="Phone"><br><br>
-      <button class="btn-prev">Back</button>
-      <button class="btn-next">Next</button>
+    <div class="form-group">
+        <label for="email">Email (Optional)</label>
+        <input type="email" id="email" placeholder="Enter your email">
     </div>
 
-   <!-- Step 3 -->
-<div class="step-content" data-step="3" style="display:none;">
-  <h3>Review & Submit</h3>
-  <div id="orderSummary"></div>
-  <button class="btn-prev">Back</button>
-  <button class="btn-submit">Submit Order</button>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <select id="country">
+            <option value="">Select your country</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="ca">Canada</option>
+            <option value="au">Australia</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
 
-  <!-- Thank you message (hidden by default) -->
-  <div id="thankYouMessage" style="display:none; margin-top:15px; color:green; font-weight:bold;"></div>
+    <div class="form-group">
+        <label for="customContent">Additional Info</label>
+        <textarea id="customContent" rows="4" placeholder="Any additional information..."></textarea>
+    </div>
 </div>
 
-  </div>
+                        
+                       <!-- Step 3: Submit Order -->
+<div class="step-content" id="step3">
+    <div class="order-confirmation">
+        <p class="order-id">Thanks You order ID is: <span>7888</span></p>
+        <p class="order-msg">you will Get reply within 24 Hours</p>
+    </div>
 </div>
+
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn-prev" style="display:none;">Previous</button>
+                        <button type="button" class="btn-next">Next</button>
+                        <button type="button" class="btn-submit" style="display:none;">Submit Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Step navigation
+            let currentStep = 1;
+            const totalSteps = 3;
+            
+            // Next button click
+            $('.btn-next').click(function() {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStep();
+                }
+            });
+            
+            // Previous button click
+            $('.btn-prev').click(function() {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStep();
+                }
+            });
+            
+            // Step indicator click
+            $('.steps-cont ul li').click(function() {
+                const step = parseInt($(this).data('step'));
+                if (step < currentStep) {
+                    currentStep = step;
+                    updateStep();
+                }
+            });
+            
+            // Update step display
+            function updateStep() {
+                // Hide all steps
+                $('.step-content').removeClass('active');
+                
+                // Show current step
+                $(`#step${currentStep}`).addClass('active');
+                
+                // Update step indicators
+                $('.steps-cont ul li').removeClass('active-step');
+                $(`.steps-cont ul li[data-step="${currentStep}"]`).addClass('active-step');
+                
+                // Update buttons
+                if (currentStep === 1) {
+                    $('.btn-prev').hide();
+                    $('.btn-next').show();
+                    $('.btn-submit').hide();
+                } else if (currentStep === totalSteps) {
+                    $('.btn-prev').show();
+                    $('.btn-next').hide();
+                    $('.btn-submit').show();
+                } else {
+                    $('.btn-prev').show();
+                    $('.btn-next').show();
+                    $('.btn-submit').hide();
+                }
+            }
+            
+            // Quantity increment/decrement
+            $('.qty .plus').click(function() {
+                const input = $(this).prev('.count');
+                const currentValue = parseInt(input.val());
+                input.val(currentValue + 1);
+            });
+            
+            $('.qty .minus').click(function() {
+                const input = $(this).next('.count');
+                const currentValue = parseInt(input.val());
+                if (currentValue > 1) {
+                    input.val(currentValue - 1);
+                }
+            });
+            
+            // Remove product
+            $('.btn-remove').click(function(e) {
+                e.preventDefault();
+                $(this).closest('tr').remove();
+            });
+            
+            // Shipping method selection
+            $('.shipping-option').click(function() {
+                $('.shipping-option').removeClass('selected');
+                $(this).addClass('selected');
+                
+                // Update shipping cost
+                const method = $(this).data('method');
+                let shippingCost = '$5.99';
+                
+                if (method === 'express') {
+                    shippingCost = '$12.99';
+                } else if (method === 'overnight') {
+                    shippingCost = '$24.99';
+                }
+                
+                $('#shippingCost').text(shippingCost);
+                updateTotal();
+            });
+            
+            // Payment method selection
+            $('.payment-method').click(function() {
+                $('.payment-method').removeClass('selected');
+                $(this).addClass('selected');
+            });
+            
+            // Update total amount
+            function updateTotal() {
+                // This is a simplified calculation
+                // In a real application, you would calculate based on actual product prices
+                const subtotal = 195.95; // Sum of products
+                const shipping = parseFloat($('#shippingCost').text().replace('$', ''));
+                const taxRate = 0.08; // 8% tax
+                const tax = (subtotal + shipping) * taxRate;
+                const total = subtotal + shipping + tax;
+                
+                $('#totalAmount').text(`$${total.toFixed(2)}`);
+            }
+            
+            // Submit order
+            $('.btn-submit').click(function() {
+                alert('Order submitted successfully! Thank you for your purchase.');
+                $('#exampleModal').modal('hide');
+                
+                // Reset form after submission
+                setTimeout(function() {
+                    currentStep = 1;
+                    updateStep();
+                }, 500);
+            });
+            
+            // Reset modal when closed
+            $('#exampleModal').on('hidden.bs.modal', function () {
+                currentStep = 1;
+                updateStep();
+            });
+        });
+
+
+
+    // Online section
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Step cards animation (sab ek saath same position me animate honge)
+  gsap.from(".step-card", {
+    scrollTrigger: {
+      trigger: ".steps-container",
+      start: "top 80%", // kab start ho
+      toggleActions: "play none none none"
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8
+  });
+
+  // Video section animation (scale + fade in)
+  gsap.from(".video-section", {
+    scrollTrigger: {
+      trigger: ".video-section",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    scale: 0.8,
+    opacity: 0,
+    duration: 1
+  });
+
+  // Order button bounce effect
+  gsap.from(".place-order-btn", {
+    scrollTrigger: {
+      trigger: ".order-btn-container",
+      start: "top 90%",
+      toggleActions: "play none none none"
+    },
+    y: 30,
+    opacity: 0,
+    duration: 0.7,
+    ease: "bounce"
+  });
+
+
+// About Anination 
+   gsap.registerPlugin(ScrollTrigger);
+
+  // pura section ek saath appear hoga jab viewport me aaye
+  gsap.from(".about-section", {
+    scrollTrigger: {
+      trigger: ".about-section",
+      start: "top 85%",    // kab start hoga (jab 85% viewport me aaye)
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 100,               // neeche se upar ki taraf aayega
+    duration: 1,
+    ease: "power3.out"
+  });
+
+
+  // Online Store
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Heading Animation
+  gsap.from(".stores-section h2, .stores-section p", {
+    scrollTrigger: {
+      trigger: ".stores-section",
+      start: "top 80%",
+    },
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.2
+  });
+
+  // Categories Animation
+  gsap.from(".categories .category", {
+    scrollTrigger: {
+      trigger: ".categories",
+      start: "top 85%",
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    stagger: 0.15,
+    ease: "back.out(1.7)"
+  });
+
+  // Store Logos Animation
+  gsap.from(".store-logo", {
+    scrollTrigger: {
+      trigger: ".store-logos",
+      start: "top 80%",
+    },
+    opacity: 0,
+    scale: 0.8,
+    duration: 0.7,
+    stagger: 0.1,
+    ease: "power2.out"
+  });
+
+  // Choose us, Review & Stats animation
+    AOS.init({
+    duration: 1000,  // animation speed (ms)
+    once: true       // ek hi baar animate hoga
+  });
+
+//  Contact animation
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate heading and paragraph
+  gsap.from("#contact h2", {
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8
+  });
+
+  gsap.from("#contact p", {
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.2
+  });
+
+  // Animate form fields row by row
+  gsap.utils.toArray("#contact .form-row").forEach((row, i) => {
+    gsap.from(row, {
+      scrollTrigger: {
+        trigger: row,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      delay: i * 0.2
+    });
+  });
+
+  // Animate submit button
+  gsap.from("#contact .form-btn button", {
+    scrollTrigger: {
+      trigger: "#contact .form-btn",
+      start: "top 85%",
+      toggleActions: "play none none none"
+    },
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.4,
+    ease: "bounce"
+  });
+
+  // Footer Animation
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate each footer section
+  gsap.utils.toArray(".footer-section").forEach((section, i) => {
+    gsap.from(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 90%",
+        toggleActions: "play none none none"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      delay: i * 0.2
+    });
+  });
+
+  // Animate footer-bottom (copyright + badges)
+  gsap.from(".footer-bottom", {
+    scrollTrigger: {
+      trigger: ".footer-bottom",
+      start: "top 95%",
+      toggleActions: "play none none none"
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out"
+  });
+
+
+
+    </script>
+
+
+
+
+
 
 
 
