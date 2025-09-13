@@ -17,7 +17,7 @@ body {
 
 /* Scroll hone par glassy effect */
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.75);
+  background: #0000FF;
   backdrop-filter: blur(20px);   /* frosted glass */
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 0.3rem 1rem;  /* aur compact ho jayega */
@@ -25,7 +25,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background: #ffffff;
+  background: #000080;
   padding: 0 1rem;
   padding-bottom: 15px;
   padding-top: 10px;
@@ -39,7 +39,7 @@ body {
 
 /* Navbar links */
 .navbar .nav-link {
-  color: #000 !important;
+  color: #fff !important;
   font-weight: 600;
   margin: 0 12px;
   position: relative;
@@ -70,7 +70,7 @@ body {
 
 /* Right side (phone + account) */
 .phone {
-  color: #000;
+  color: #fff;
   font-weight: 600;
   font-size: 15px;
 }
@@ -127,13 +127,13 @@ body {
 
 /* Hero Section */
 .hero-section {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
     padding: 0 5%;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: #8B0000;
     position: relative;
     overflow: hidden; /* hide overflowing text */
 
@@ -194,12 +194,12 @@ body {
 }
 
 .cta-button {
-     background: linear-gradient(135deg, #8B0000, #E1AD01); /* Deep Red → Mustard */
+   background-color: #f9bf29;
     color: white;
      padding: 12px 28px;
     font-size: 1.2rem;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 30px;
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(231,76,60,0.3);
     transition: all 0.3s ease;
