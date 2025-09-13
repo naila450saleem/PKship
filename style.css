@@ -1184,197 +1184,213 @@ form textarea {
 
 
 /* Footer Styles */
-      .footer-container {
-            width: 100%;
-            max-width: 1200px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .footer {
-            background-color: #f8f9fa;
-            padding: 40px 20px 20px;
-            border-top: 1px solid #e7e7e7;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-            padding: 0 15px;
-        }
-        
-        .footer-section h3 {
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 15px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background-color: #4285f4;
-        }
-        
-        .footer-section p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: #e0e0e0;
-            color: #333;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            background-color: #4285f4;
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: inline-block;
-        }
-        
-        .footer-links a:hover {
-            color: #4285f4;
-            padding-left: 5px;
-        }
-        
-        .contact-info p {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            color: #666;
-        }
-        
-        .contact-info i {
-            margin-right: 10px;
-            color: #4285f4;
-            width: 20px;
-            text-align: center;
-        }
-        
-        .platform-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .platform-links a {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: #f0f0f0;
-            color: #333;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .platform-links a:hover {
-            background-color: #4285f4;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #e7e7e7;
-            padding-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .copyright {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .security-badges {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .security-badges span {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .security-badges i {
-            color: #4285f4;
-            font-size: 18px;
-        }
-        
-        .wechat-icon {
-            width: 24px;
-            height: 24px;
-            background-color: #07C160;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-            }
-            
-            .footer-section {
-                margin-bottom: 30px;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-        }
+.footer-container {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 0;
+    margin: 0;
+    /* Shadow at top */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
 
+.footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.footer-section h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #e74c3c; /* 使用与网站主题匹配的红色 */
+}
+
+.footer-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #e74c3c;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #e74c3c;
+    padding-left: 5px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #e74c3c;
+    width: 20px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.platform-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.platform-links a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.platform-links a:hover {
+    background-color: #e74c3c;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    color: #666;
+    font-size: 14px;
+}
+
+.security-badges {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.security-badges span {
+    color: #666;
+    font-size: 14px;
+}
+
+.security-badges i {
+    color: #666;
+    font-size: 20px;
+}
+
+.security-badges i:hover {
+    color: #e74c3c;
+}
+
+.wechat-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #07C160;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .security-badges {
+        justify-content: center;
+    }
+}
 
         /* order Form */
         /* ---------- Modal Base ---------- */
