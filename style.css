@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
   --primary-green: #006600;
   --accent-orange: #F7941D;
@@ -1325,28 +1331,35 @@ form textarea {
 }
 
 .footer-bottom {
-    border-top: 1px solid #e7e7e7;
-    padding-top: 20px;
+    padding: 15px 20px; /* consistent padding */
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap; /* prevent wrapping → no vertical scroll */
+    background-color: #f8f9fa; /* same as footer bg */
 }
 
 .copyright {
     color: #666;
     font-size: 14px;
+    flex: 1; /* take available space */
+    display: flex;
+    align-items: center;
 }
 
 .security-badges {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex: 1;
+    justify-content: flex-end; /* badges on right side */
+    flex-wrap: nowrap; /* prevent wrapping */
 }
 
 .security-badges span {
     color: #666;
     font-size: 14px;
+    white-space: nowrap; /* prevent text wrap */
 }
 
 .security-badges i {
@@ -1370,6 +1383,8 @@ form textarea {
     font-weight: bold;
     font-size: 14px;
 }
+
+
 
 @media (max-width: 768px) {
     .footer-content {
