@@ -1190,33 +1190,41 @@ form textarea {
 
 
 /* Footer Styles */
+/* Footer Container */
 .footer-container {
     width: 100%;
     background-color: #f8f9fa;
     padding: 0;
     margin: 0;
-    /* Shadow at top */
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-x: hidden; /* Horizontal scroll ko rokta hai */
 }
 
+/* Footer Wrapper */
 .footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px 20px;
+    box-sizing: border-box;
 }
 
+/* Footer Content */
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 30px;
+    gap: 20px;
+    box-sizing: border-box;
 }
 
+/* Footer Sections */
 .footer-section {
     flex: 1;
     min-width: 250px;
     margin-bottom: 20px;
     padding: 0 15px;
+    box-sizing: border-box;
 }
 
 .footer-section h3 {
@@ -1234,7 +1242,7 @@ form textarea {
     bottom: 0;
     width: 50px;
     height: 2px;
-    background-color: #e74c3c; /* 使用与网站主题匹配的红色 */
+    background-color: #e74c3c;
 }
 
 .footer-section p {
@@ -1244,6 +1252,7 @@ form textarea {
     font-size: 14px;
 }
 
+/* Social Icons */
 .social-icons {
     display: flex;
     gap: 10px;
@@ -1264,10 +1273,11 @@ form textarea {
 
 .social-icons a:hover {
     background-color: #e74c3c;
-    color: white;
+    color: #fff;
     transform: translateY(-3px);
 }
 
+/* Footer Links */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -1291,6 +1301,7 @@ form textarea {
     padding-left: 5px;
 }
 
+/* Contact Info */
 .contact-info p {
     display: flex;
     align-items: flex-start;
@@ -1307,6 +1318,7 @@ form textarea {
     margin-top: 3px;
 }
 
+/* Platform Links */
 .platform-links {
     display: flex;
     flex-wrap: wrap;
@@ -1326,40 +1338,39 @@ form textarea {
 
 .platform-links a:hover {
     background-color: #e74c3c;
-    color: white;
+    color: #fff;
     transform: translateY(-2px);
 }
 
+/* Footer Bottom */
 .footer-bottom {
-    padding: 15px 20px; /* consistent padding */
+    border-top: 1px solid #e7e7e7;
+    padding-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* prevent wrapping → no vertical scroll */
-    background-color: #f8f9fa; /* same as footer bg */
+    gap: 15px;
+    box-sizing: border-box;
 }
 
+/* Copyright */
 .copyright {
     color: #666;
     font-size: 14px;
-    flex: 1; /* take available space */
-    display: flex;
-    align-items: center;
 }
 
+/* Security Badges */
 .security-badges {
     display: flex;
     align-items: center;
-    gap: 15px;
-    flex: 1;
-    justify-content: flex-end; /* badges on right side */
-    flex-wrap: nowrap; /* prevent wrapping */
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .security-badges span {
     color: #666;
     font-size: 14px;
-    white-space: nowrap; /* prevent text wrap */
 }
 
 .security-badges i {
@@ -1371,6 +1382,7 @@ form textarea {
     color: #e74c3c;
 }
 
+/* WeChat Icon */
 .wechat-icon {
     width: 24px;
     height: 24px;
@@ -1384,8 +1396,7 @@ form textarea {
     font-size: 14px;
 }
 
-
-
+/* Responsive */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -1399,13 +1410,13 @@ form textarea {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
-        gap: 15px;
     }
     
     .security-badges {
         justify-content: center;
     }
 }
+
 
         /* order Form */
         /* ---------- Modal Base ---------- */
