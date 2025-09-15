@@ -92,7 +92,7 @@ body {
 
 /* Login & Sign Up Buttons in Modals */
 .modal-body .btn-success {
-     background: linear-gradient(135deg, #8B0000, #E1AD01); /* Deep Red → Mustard */ /* Change button color */
+     background: #151540; /* Deep Red → Mustard */ /* Change button color */
     border-color: #28a745;      /* Change border color */
     color: #fff;                /* Text color */
     font-weight: 600;           /* Bold text */
