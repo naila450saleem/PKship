@@ -27,24 +27,24 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(() => showSlide(index + 1), 5000);
 
   /* ---------------- CATEGORY FILTER ---------------- */
-  const categories = document.querySelectorAll(".category");
-  const storeLogos = document.querySelectorAll(".store-logo");
+  // const categories = document.querySelectorAll(".category");
+  // const storeLogos = document.querySelectorAll(".store-logo");
 
-  categories.forEach(category => {
-    category.addEventListener("click", () => {
-      categories.forEach(c => c.classList.remove("active"));
-      category.classList.add("active");
+  // categories.forEach(category => {
+  //   category.addEventListener("click", () => {
+  //     categories.forEach(c => c.classList.remove("active"));
+  //     category.classList.add("active");
 
-      const cat = category.dataset.category;
-      storeLogos.forEach(logo => {
-        if (cat === "all" || logo.classList.contains(cat)) {
-          logo.style.display = "block";
-        } else {
-          logo.style.display = "none";
-        }
-      });
-    });
-  });
+  //     const cat = category.dataset.category;
+  //     storeLogos.forEach(logo => {
+  //       if (cat === "all" || logo.classList.contains(cat)) {
+  //         logo.style.display = "flex";
+  //       } else {
+  //         logo.style.display = "none";
+  //       }
+  //     });
+  //   });
+  // });
 
   /* ---------------- TESTIMONIAL SLIDER ---------------- */
   const tSlides = document.querySelectorAll(".testimonials-section .slide");
@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
     showTestimonial(currentIndex);
   }, 5000);
 
-  /* ---------------- ORDER FORM MODAL ---------------- */
+  /* ---------------- Stats section ---------------- */
+  
  });
 
 
