@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+  <!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 
 <!-- AOS CSS -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -23,7 +27,7 @@
 
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
@@ -47,19 +51,24 @@
     <div class="collapse navbar-collapse" id="mainNavbar">
     <ul class="navbar-nav mx-auto d-flex align-items-center">
   <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+   <li class="nav-item separator">|</li>
+
   <li class="nav-item"><a class="nav-link" href="#choose-us">About Us</a></li>
+   <li class="nav-item separator">|</li>
 
   <!-- Dropdown Start -->
  <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle custom-toggle" href="#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Our Services <span class="custom-arrow">&rsaquo;</span>
   </a>
+  
   <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
     <li><a class="dropdown-item" href="#service1">Service 1</a></li>
     <li><a class="dropdown-item" href="#service2">Service 2</a></li>
     <li><a class="dropdown-item" href="#service3">Service 3</a></li>
   </ul>
 </li>
+ <li class="nav-item separator">|</li>
 
   <!-- Dropdown End -->
 
@@ -225,7 +234,7 @@
 
 
 <!-- About Us -->
- <section class="about-section">
+ <section class="about-section" >
 <div class="about-container">
         <header>
             <h1>How To Order</h1>
@@ -331,23 +340,60 @@
       <div class="store-logo men">
         <img src="stores/14.jpg" alt="Levi's" />
       </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
 
       <!-- Women's Products -->
       <div class="store-logo women">
         <img src="stores/16.jpg" alt="H&M" />
       </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+      <div class="store-logo clothing">
+        <img src="stores/2.png" alt="Adidas" />
+      </div>
+     
     </div>
   </div>
+
+  
 </section>
 
 
+
+
+
 <!-- Start Why Choose Us Section -->
-<div class="why-choose-section" id="why-us" data-aos="fade-up">
+<div class="why-choose-section" id="choose-us" data-aos="fade-up">
   <div class="container">
     <div class="row align-items-center justify-content-between">
 
       <!-- Left Content -->
       <div class="col-lg-6" data-aos="fade-right">
+         <div class="left-content-wrap">
         <h2 class="section-title underline">Why Choose Us</h2>
         <div class="row my-5">
           <div class="col-6 col-md-6" data-aos="zoom-in" data-aos-delay="100">
@@ -393,9 +439,10 @@
 
         <button onclick="$('#contactModal').modal('show')" class="btn btn-primary" data-aos="fade-up" data-aos-delay="500">Contact Us</button>
       </div>
+      </div>
 
       <!-- Right Side Video -->
-      <div class="col-lg-5" data-aos="fade-left">
+      <div class="col-lg-6" data-aos="fade-left">
         <div class="img-wrap">
           <div class="video-frame">
             <iframe 
@@ -417,48 +464,40 @@
 
 
 
-<!-- Start Popular Product -->
-<div class="popular-product" id="reviews-section" data-aos="fade-up">
+<div class="popular-product" id="reviews-section">
   <div class="container">
+    <h2 class="section-title">ShopUSA Reviews</h2>
     <div class="row">
-
-      <h2 class="section-title text-center mb-3" data-aos="fade-up">ShopUSA Reviews</h2>
-
-      <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-        <div class="product-item-sm d-flex">
-          <div class="thumbnail">
-            <img loading="lazy" src="images_futuk/facebook.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="pt-3">
+      
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="review-item">
+          <img src="images_futuk/facebook.png" alt="Facebook" class="review-logo">
+          <div>
             <h3>Reviews on Facebook</h3>
             <p>96% recommend (324 Reviews)</p>
-            <p><a href="https://www.facebook.com/PkShipStore/reviews">Read More on Facebook</a></p>
+            <a href="https://www.facebook.com/PkShipStore/reviews" target="_blank">Read More on Facebook</a>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-        <div class="product-item-sm d-flex">
-          <div class="thumbnail">
-            <img loading="lazy" src="images_futuk/google.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="pt-3">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="review-item">
+          <img src="images_futuk/google.png" alt="Google" class="review-logo">
+          <div>
             <h3>Reviews on Google</h3>
             <p>4.3 Ratings on Google (237 Reviews)</p>
-            <p><a href="https://www.google.com/search?q=pkship">Read More on Google</a></p>
+            <a href="https://www.google.com/search?q=pkship" target="_blank">Read More on Google</a>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
-        <div class="product-item-sm d-flex">
-          <div class="thumbnail">
-            <img loading="lazy" src="images_futuk/press.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="pt-3">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="review-item">
+          <img src="images_futuk/press.png" alt="Press" class="review-logo">
+          <div>
             <h3>ShopUSA.pk in the Media</h3>
             <p>Our coverage in the local media</p>
-            <p><a href="https://www.dawn.com/news/1232718">Read The News</a></p>
+            <a href="https://www.dawn.com/news/1232718" target="_blank">Read The News</a>
           </div>
         </div>
       </div>
@@ -466,7 +505,7 @@
     </div>
   </div>
 </div>
-<!-- End Popular Product -->
+
 
 
 
@@ -579,213 +618,6 @@
   </div>
 </div>
 <!-- End Testimonial Slider -->
-
-<style>
-/* Section Styling */
-.testimonial-section {
-  padding: 3rem 0 5rem;
-  background: #f9f9f9;
-}
-.section-title {
-  font-size: 32px;
-  margin-bottom: 2rem;
-  font-weight: bold;
-}
-
-/* Slider */
-.testimonial-slider-wrap {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  overflow: hidden; /* hide overflow during slide */
-}
-.testimonial-slider {
-  position: relative;
-  min-height: 250px;
-}
-.testimonial-slider .item {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: all 0.6s ease;
-}
-.testimonial-slider .item.active {
-  left: 0;
-  opacity: 1;
-}
-.testimonial-slider .item.slide-in-right {
-  left: 0;
-  opacity: 1;
-}
-.testimonial-slider .item.slide-out-left {
-  left: -100%;
-  opacity: 0;
-}
-.testimonial-slider .item.slide-in-left {
-  left: 0;
-  opacity: 1;
-}
-.testimonial-slider .item.slide-out-right {
-  left: 100%;
-  opacity: 0;
-}
-
-/* Testimonial Block */
-.testimonial-block blockquote {
-  font-size: 18px;
-  line-height: 30px;
-  font-style: italic;
-  color: #555;
-}
-.author-info {
-  margin-top: 20px;
-}
-.author-pic img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.author-info h3 {
-  margin-top: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #2f2f2f;
-}
-
-/* Controls */
-#testimonial-nav .prev,
-#testimonial-nav .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 20px;
-  background: rgba(59, 93, 80, 0.2);
-  color: #333;
-  border-radius: 50%;
-  transition: 0.3s;
-  z-index: 10;
-}
-#testimonial-nav .prev:hover,
-#testimonial-nav .next:hover {
-  background: #3b5d50;
-  color: #fff;
-}
-#testimonial-nav .prev {
-  left: 15px;   /* visible inside slider */
-}
-#testimonial-nav .next {
-  right: 15px;  /* visible inside slider */
-}
-
-/* Dots */
-.dots {
-  text-align: center;
-  margin-top: 25px;
-}
-.dots span {
-  cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: #d6d6d6;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s;
-}
-.dots span.active,
-.dots span:hover {
-  background-color: #3b5d50;
-}
-
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".testimonial-slider .item");
-  const prevBtn = document.querySelector("#testimonial-nav .prev");
-  const nextBtn = document.querySelector("#testimonial-nav .next");
-  const dotsContainer = document.querySelector(".dots");
-  let currentIndex = 0;
-
-  // Create dots dynamically
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.addEventListener("click", () => {
-      goToSlide(i);
-    });
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = dotsContainer.querySelectorAll("span");
-
-  function showSlide(newIndex, direction) {
-    if (newIndex === currentIndex) return;
-
-    const currentSlide = slides[currentIndex];
-    const nextSlide = slides[newIndex];
-
-    slides.forEach((s, i) => {
-      s.classList.remove(
-        "active",
-        "slide-in-right",
-        "slide-out-left",
-        "slide-in-left",
-        "slide-out-right"
-      );
-      dots[i].classList.remove("active");
-    });
-
-    if (direction === "next") {
-      currentSlide.classList.add("slide-out-left");
-      nextSlide.classList.add("slide-in-right");
-    } else {
-      currentSlide.classList.add("slide-out-right");
-      nextSlide.classList.add("slide-in-left");
-    }
-
-    nextSlide.classList.add("active");
-    dots[newIndex].classList.add("active");
-    currentIndex = newIndex;
-  }
-
-  function goToSlide(index) {
-    let direction = index > currentIndex ? "next" : "prev";
-    showSlide(index, direction);
-  }
-
-  // Show first slide
-  slides[currentIndex].classList.add("active");
-  dots[currentIndex].classList.add("active");
-
-  // Next/Prev controls
-  nextBtn.addEventListener("click", () => {
-    let nextIndex = (currentIndex + 1) % slides.length;
-    showSlide(nextIndex, "next");
-  });
-
-  prevBtn.addEventListener("click", () => {
-    let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(prevIndex, "prev");
-  });
-
-  // Auto slide
-  setInterval(() => {
-    let nextIndex = (currentIndex + 1) % slides.length;
-    showSlide(nextIndex, "next");
-  }, 5000);
-});
-
-</script>
-
-
 
 
 <!-- Contact Section -->
@@ -1105,171 +937,170 @@ window.addEventListener("click", (e) => {
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="pop-up-cont">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <form class="col-lg-9 col-sm-11">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="pop-up-cont">
+            <div class="modal-content">
+                <!-- Moved close button inside modal-header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <form class="col-lg-9 col-sm-11">
+                        <div class="form-group">
+                            <input type="text" class="place order" id="subscribe" placeholder="Paste your product link here">
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="steps-cont">
+                    <ul> 
+                        <li class="active-step" data-step="1"><span>1</span> Add Products</li>
+                        <li data-step="2"><span>2</span> Shipping info</li>
+                        <li data-step="3"><span>3</span> Submit Order</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-body">
+                    <!-- Step 1: Add Products -->
+                    <div class="step-content active" id="step1">
+                        <div class="table-responsive">
+                            <table class="c">
+                                <thead>
+                                    <tr>
+                                        <th>product</th>
+                                        <th>quantity</th>
+                                        <th colspan="2">Comments</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
+                                            <a href="#" class="product-dtl">
+                                                <img src="assets/images/leather-belt.jpg" alt="product">
+                                                <p>Leather belt <span>Size: M <br> Color: Cognac brown</span></p>
+                                            </a>
+                                        </td>
+                                        <td class="small-pane">	
+                                            <div class="qty">
+                                                <span class="minus">-</span>
+                                                <input type="number" class="count" name="qty" value="1">
+                                                <span class="plus">+</span>
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
+                                            <a href="#" class="product-dtl">
+                                                <img src="assets/images/leather-boots.jpg" alt="product">
+                                                <p>Leather boots <span>Size: 9 <br> Color: Black</span></p>
+                                            </a>
+                                        </td>
+                                        <td class="small-pane">	
+                                            <div class="qty">
+                                                <span class="minus">-</span>
+                                                <input type="number" class="count" name="qty" value="1">
+                                                <span class="plus">+</span>
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
+                                            <a href="#" class="product-dtl">
+                                                <img src="assets/images/basic-tShirt.jpg" alt="product">
+                                                <p>Basic T-Shirt <span>Size: L <br> Color: White</span></p>
+                                            </a>
+                                        </td>
+                                        <td class="small-pane">	
+                                            <div class="qty">
+                                                <span class="minus">-</span>
+                                                <input type="number" class="count" name="qty" value="3">
+                                                <span class="plus">+</span>
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Shipping Info -->
+                    <div class="step-content" id="step2">
+                        <h3>Shipping Information</h3>
+                        <div class="form-row">
                             <div class="form-group">
-                                <input type="text" class="place order" id="subscribe" placeholder="Paste your product link here">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" placeholder="Enter your full name">
                             </div>
-                        </form>
-                    </div>
-                    
-                    <div class="steps-cont">
-                        <ul> 
-                            <li class="active-step" data-step="1"><span>1</span> Add Products</li>
-                            <li data-step="2"><span>2</span> Shipping info</li>
-                            <li data-step="3"><span>3</span> Submit Order</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="modal-body">
-                        <!-- Step 1: Add Products -->
-                        <div class="step-content active" id="step1">
-                            <div class="table-responsive">
-                                <table class="c">
-                                    <thead>
-                                        <tr>
-                                            <th>product</th>
-                                            <th>quantity</th>
-                                            <th colspan="2">Comments</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
-                                                <a href="#" class="product-dtl">
-                                                    <img src="https://via.placeholder.com/60" alt="product">
-                                                    <p>Leather belt <span>Size: M <br> Color: Cognac brown</span></p>
-                                                </a>
-                                            </td>
-                                            <td class="small-pane">	
-                                                <div class="qty">
-                                                    <span class="minus">-</span>
-                                                    <input type="number" class="count" name="qty" value="1">
-                                                    <span class="plus">+</span>
-                                                </div>
-                                            </td>
-                                            <td colspan="2">
-                                                <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
-                                                <a href="#" class="product-dtl">
-                                                    <img src="https://via.placeholder.com/60" alt="product">
-                                                    <p>Leather boots <span>Size: 9 <br> Color: Black</span></p>
-                                                </a>
-                                            </td>
-                                            <td class="small-pane">	
-                                                <div class="qty">
-                                                    <span class="minus">-</span>
-                                                    <input type="number" class="count" name="qty" value="1">
-                                                    <span class="plus">+</span>
-                                                </div>
-                                            </td>
-                                            <td colspan="2">
-                                                <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#" class="btn-remove"><i class="fa fa-times" aria-hidden="true"></i></a> 
-                                                <a href="#" class="product-dtl">
-                                                    <img src="https://via.placeholder.com/60" alt="product">
-                                                    <p>Basic T-Shirt <span>Size: L <br> Color: White</span></p>
-                                                </a>
-                                            </td>
-                                            <td class="small-pane">	
-                                                <div class="qty">
-                                                    <span class="minus">-</span>
-                                                    <input type="number" class="count" name="qty" value="3">
-                                                    <span class="plus">+</span>
-                                                </div>
-                                            </td>
-                                            <td colspan="2">
-                                                <textarea rows="3" placeholder="Add additional comments like color, size etc."></textarea>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="form-group">
+                                <label for="mobile">Mobile</label>
+                                <input type="text" id="mobile" placeholder="Enter your mobile number">
                             </div>
                         </div>
-                        
-                        <!-- Step 2: Shipping Info -->
-<div class="step-content" id="step2">
-    <h3>Shipping Information</h3>
-    <div class="form-row">
-        <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" placeholder="Enter your full name">
-        </div>
-        <div class="form-group">
-            <label for="mobile">Mobile</label>
-            <input type="text" id="mobile" placeholder="Enter your mobile number">
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label for="city">City</label>
-        <input type="text" id="city" placeholder="Enter your city">
-    </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="Enter your city">
+                        </div>
 
-    <div class="form-group">
-        <label for="email">Email (Optional)</label>
-        <input type="email" id="email" placeholder="Enter your email">
-    </div>
+                        <div class="form-group">
+                            <label for="email">Email (Optional)</label>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
 
-    <div class="form-group">
-        <label for="country">Country</label>
-        <select id="country">
-            <option value="">Select your country</option>
-            <option value="us">United States</option>
-            <option value="uk">United Kingdom</option>
-            <option value="ca">Canada</option>
-            <option value="au">Australia</option>
-            <option value="other">Other</option>
-        </select>
-    </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country">
+                                <option value="">Select your country</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="ca">Canada</option>
+                                <option value="au">Australia</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
 
-    <div class="form-group">
-        <label for="customContent">Additional Info</label>
-        <textarea id="customContent" rows="4" placeholder="Any additional information..."></textarea>
-    </div>
-</div>
-
-                        
-                       <!-- Step 3: Submit Order -->
-<div class="step-content" id="step3">
-    <div class="order-confirmation">
-        <p class="order-id">Thanks You order ID is: <span>7888</span></p>
-        <p class="order-msg">you will Get reply within 24 Hours</p>
-    </div>
-</div>
-
+                        <div class="form-group">
+                            <label for="customContent">Additional Info</label>
+                            <textarea id="customContent" rows="4" placeholder="Any additional information..."></textarea>
+                        </div>
                     </div>
                     
-                    <div class="modal-footer">
-                        <button type="button" class="btn-prev" style="display:none;">Previous</button>
-                        <button type="button" class="btn-next">Next</button>
-                        <button type="button" class="btn-submit" style="display:none;">Submit Order</button>
+                    <!-- Step 3: Submit Order -->
+                    <div class="step-content" id="step3">
+                        <div class="order-confirmation">
+                            <p class="order-id">Thanks You order ID is: <span>7888</span></p>
+                            <p class="order-msg">you will Get reply within 24 Hours</p>
+                        </div>
                     </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn-prev" style="display:none;">Previous</button>
+                    <button type="button" class="btn-next">Next</button>
+                    <button type="button" class="btn-submit" style="display:none;">Submit Order</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+ <!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <script>
 $(document).ready(function() {
     // Step navigation
@@ -1343,35 +1174,6 @@ $(document).ready(function() {
         $(this).closest('tr').remove();
     });
     
-    // Shipping method selection
-    $('.shipping-option').click(function() {
-        $('.shipping-option').removeClass('selected');
-        $(this).addClass('selected');
-        
-        const method = $(this).data('method');
-        let shippingCost = '$5.99';
-        if (method === 'express') shippingCost = '$12.99';
-        else if (method === 'overnight') shippingCost = '$24.99';
-
-        $('#shippingCost').text(shippingCost);
-        updateTotal();
-    });
-    
-    // Payment method selection
-    $('.payment-method').click(function() {
-        $('.payment-method').removeClass('selected');
-        $(this).addClass('selected');
-    });
-    
-    // Update total amount
-    function updateTotal() {
-        const subtotal = 195.95; // Example subtotal
-        const shipping = parseFloat($('#shippingCost').text().replace('$', ''));
-        const tax = (subtotal + shipping) * 0.08; // 8% tax
-        const total = subtotal + shipping + tax;
-        $('#totalAmount').text(`$${total.toFixed(2)}`);
-    }
-    
     // Submit order
     $('.btn-submit').click(function() {
         alert('Order submitted successfully! Thank you for your purchase.');
@@ -1388,133 +1190,6 @@ $(document).ready(function() {
         updateStep();
     });
 });
-
-// ----- GSAP Animations -----
-gsap.registerPlugin(ScrollTrigger);
-
-// Step cards animation
-gsap.from(".step-card", {
-    scrollTrigger: {
-        trigger: ".steps-container",
-        start: "top 80%",
-        toggleActions: "play none none none"
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8
-});
-
-// Video section animation
-gsap.from(".video-section", {
-    scrollTrigger: {
-        trigger: ".video-section",
-        start: "top 80%",
-        toggleActions: "play none none none"
-    },
-    scale: 0.8,
-    opacity: 0,
-    duration: 1
-});
-
-// Order button bounce effect
-gsap.from(".place-order-btn", {
-    scrollTrigger: {
-        trigger: ".order-btn-container",
-        start: "top 90%",
-        toggleActions: "play none none none"
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.7,
-    ease: "bounce"
-});
-
-// About Section animation
-gsap.from(".about-section", {
-    scrollTrigger: {
-        trigger: ".about-section",
-        start: "top 85%",
-        toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 100,
-    duration: 1,
-    ease: "power3.out"
-});
-
-// Online Store Heading & Paragraph
-gsap.from(".stores-section h2, .stores-section p", {
-    scrollTrigger: {
-        trigger: ".stores-section",
-        start: "top 80%"
-    },
-    opacity: 0,
-    y: 40,
-    duration: 0.8,
-    stagger: 0.2
-});
-
-// Categories Animation
-gsap.from(".categories .category", {
-    scrollTrigger: {
-        trigger: ".categories",
-        start: "top 85%"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.6,
-    stagger: 0.15,
-    ease: "back.out(1.7)"
-});
-
-// Store Logos Animation
-gsap.from(".store-logo", {
-    scrollTrigger: {
-        trigger: ".store-logos",
-        start: "top 80%"
-    },
-    opacity: 0,
-    scale: 0.8,
-    duration: 0.7,
-    stagger: 0.1,
-    ease: "power2.out"
-});
-
-// Category Filtering
-const categories = document.querySelectorAll(".category");
-const storeLogos = document.querySelectorAll(".store-logo");
-
-categories.forEach(category => {
-    category.addEventListener("click", () => {
-        categories.forEach(c => c.classList.remove("active"));
-        category.classList.add("active");
-
-        const cat = category.dataset.category;
-        storeLogos.forEach(logo => {
-            logo.style.display = (cat === "all" || logo.classList.contains(cat)) ? "flex" : "none";
-        });
-    });
-});
-
-// Initialize AOS
-AOS.init({
-    duration: 1000,
-    once: true
-});
-
-// Contact Section Animations
-gsap.from("#contact h2", { scrollTrigger: { trigger: "#contact", start: "top 80%" }, y: 50, opacity: 0, duration: 0.8 });
-gsap.from("#contact p", { scrollTrigger: { trigger: "#contact", start: "top 80%" }, y: 50, opacity: 0, duration: 0.8, delay: 0.2 });
-gsap.utils.toArray("#contact .form-row").forEach((row, i) => {
-    gsap.from(row, { scrollTrigger: { trigger: row, start: "top 85%" }, y: 50, opacity: 0, duration: 0.8, delay: i * 0.2 });
-});
-gsap.from("#contact .form-btn button", { scrollTrigger: { trigger: "#contact .form-btn", start: "top 85%" }, y: 30, opacity: 0, duration: 0.8, delay: 0.4, ease: "bounce" });
-
-// Footer Animations
-gsap.utils.toArray(".footer-section").forEach((section, i) => {
-    gsap.from(section, { scrollTrigger: { trigger: section, start: "top 90%" }, y: 50, opacity: 0, duration: 0.8, delay: i * 0.2 });
-});
-gsap.from(".footer-bottom", { scrollTrigger: { trigger: ".footer-bottom", start: "top 95%" }, y: 50, opacity: 0, duration: 1, ease: "power2.out" });
 </script>
 
 
@@ -1522,6 +1197,10 @@ gsap.from(".footer-bottom", { scrollTrigger: { trigger: ".footer-bottom", start:
 
 
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 
 
