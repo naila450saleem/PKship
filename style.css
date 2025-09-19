@@ -104,6 +104,14 @@ body {
   user-select: none;
 }
 
+a,
+a:focus,
+a:hover {
+  text-decoration: none !important;
+}
+
+
+
 /* Mobile me separator hide */
 @media (max-width: 768px) {
   .navbar .separator {
@@ -382,9 +390,9 @@ body {
 }
 
 .cta-button:hover {
-    background: #f8b810;
-    border-color: #f8b810;
-    color: #2f2f2f;
+    background: #f8b810 !important;
+    border-color: #f8b810 !important;
+    color: #2f2f2f !important;
 }
 
 .cta-button-outline {
@@ -715,7 +723,8 @@ body {
         }
 
         .place-order-btn:hover {
-            background-color: #2980b9;
+            background-color: #16a085;
+            color: white;
             transform: translateY(-2px);
         }
 
