@@ -2039,21 +2039,19 @@ form textarea {
 
 
 
-/* Responsive Footer for Mobile */
 @media (max-width: 768px) {
     .footer-content {
         display: flex;
-        flex-direction: row;      /* horizontal layout */
-        justify-content: center;  /* center aligned */
-        flex-wrap: nowrap;        /* ek line me rakhe */
-        overflow-x: auto;         /* agar space kam ho to scroll */
-        gap: 15px;
+        flex-direction: row;      /* horizontal */
+        justify-content: space-between; /* equal spacing */
+        flex-wrap: wrap;           /* wrap kar dega agar space kam ho */
+        gap: 10px;                 /* sections ke beech gap */
     }
 
     .footer-section {
-        flex: 0 0 auto;           /* shrink na ho */
-        min-width: 200px;         /* har section ka minimum width */
-        margin-bottom: 0;         /* vertical spacing remove */
+        flex: 1 1 45%;             /* 2 sections ek row me fit */
+        min-width: 0;               /* scroll avoid */
+        margin-bottom: 15px;
     }
 
     .footer-bottom {
