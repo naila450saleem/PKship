@@ -1898,7 +1898,7 @@ form textarea {
 /* Footer Sections */
 .footer-section {
     flex: 1;
-    min-width: 250px;
+    min-width: 200px;
     margin-bottom: 20px;
     padding: 0 15px;
     box-sizing: border-box;
