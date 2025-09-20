@@ -1842,7 +1842,26 @@ form textarea {
 
 
 /* Footer Styles */
-/* Footer Container */
+.payment-logo {
+  height: 40px;           /* logo ka size */
+  margin-right: 15px;     /* icon se gap */
+  vertical-align: middle; /* same line me rakhta hai */
+}
+
+.whatsapp-icon {
+  font-size: 35px !important;  /* thoda bada icon */
+  color: #25D366;              /* WhatsApp green */
+  text-decoration: none;
+  position: relative;
+  top: 5px;                    /* icon ko thoda neeche karega */
+}
+.whatsapp-icon:hover {
+  color: #128C7E;              /* hover effect */
+}
+
+
+
+
 .footer-logo {
   max-width: 80px; /* size adjust karne ke liye */
   height: auto;
@@ -2018,62 +2037,35 @@ form textarea {
     font-size: 14px;
 }
 
-/* Security Badges */
-.security-badges {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
 
-.security-badges span {
-    color: #666;
-    font-size: 14px;
-}
 
-.security-badges i {
-    color: #666;
-    font-size: 20px;
-}
-
-.security-badges i:hover {
-    color: #e74c3c;
-}
-
-/* WeChat Icon */
-.wechat-icon {
-    width: 24px;
-    height: 24px;
-    background-color: #07C160;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/* Responsive */
+/* Responsive Footer for Mobile */
 @media (max-width: 768px) {
     .footer-content {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;      /* horizontal layout */
+        justify-content: center;  /* center aligned */
+        flex-wrap: nowrap;        /* ek line me rakhe */
+        overflow-x: auto;         /* agar space kam ho to scroll */
+        gap: 15px;
     }
-    
+
     .footer-section {
-        margin-bottom: 30px;
-        width: 100%;
+        flex: 0 0 auto;           /* shrink na ho */
+        min-width: 200px;         /* har section ka minimum width */
+        margin-bottom: 0;         /* vertical spacing remove */
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .security-badges {
         justify-content: center;
     }
 }
+
 
 
 /* Modal Popup */
