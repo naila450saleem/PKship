@@ -160,7 +160,7 @@ a:hover {
 
 /* Dropdown menu items */
 .navbar .dropdown-item {
-  border-bottom: 1px solid red !important;  /* har item ke niche red line */
+  border-bottom: 1px solid blue !important;  /* har item ke niche red line */
   padding: 8px 15px;
   text-align: center;
 }
