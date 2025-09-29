@@ -624,6 +624,12 @@ a:hover {
         margin-top: 1.5rem;
         transform: translateY(0);
     }
+
+    .arrow-left {
+        width: 45px;      /* width bara */
+        height: 60px;     /* height bara */
+        font-size: 28px;  /* arrow symbol bara */
+    }
 }
 @media (max-width: 767px) {
   .hero-section {
