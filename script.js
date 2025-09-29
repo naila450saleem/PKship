@@ -30,21 +30,21 @@ navLinks.forEach(link => {
   // });
 
   /* ---------------- HERO SLIDER ---------------- */
-  const sliderTrack = document.querySelector(".text-slider-track");
-  const slides = document.querySelectorAll(".slider-item");
-  const prevArrow = document.querySelector(".arrow-left");
-  const nextArrow = document.querySelector(".arrow-right");
-  let index = 0;
+  const heroTrack = document.querySelector(".text-slider-track");
+  const heroSlides = document.querySelectorAll(".slider-item");
+  const heroPrev = document.querySelector(".arrow-left");
+  const heroNext = document.querySelector(".arrow-right");
+  let heroIndex = 0;
 
-  function showSlide(i) {
-    index = (i + slides.length) % slides.length;
-    sliderTrack.style.transform = `translateX(-${index * 100}%)`;
+  function showHeroSlide(i) {
+    heroIndex = (i + heroSlides.length) % heroSlides.length;
+    heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
   }
 
-  prevArrow.addEventListener("click", () => showSlide(index - 1));
-  nextArrow.addEventListener("click", () => showSlide(index + 1));
+  heroPrev.addEventListener("click", () => showHeroSlide(heroIndex - 1));
+  heroNext.addEventListener("click", () => showHeroSlide(heroIndex + 1));
 
-  setInterval(() => showSlide(index + 1), 5000);
+  setInterval(() => showHeroSlide(heroIndex + 1), 5000);
 
   /* ---------------- CATEGORY FILTER ---------------- */
   // const categories = document.querySelectorAll(".category");
@@ -209,3 +209,5 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(nextIndex, "next");
   }, 5000);
 });
+
+

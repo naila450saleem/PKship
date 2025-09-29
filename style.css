@@ -378,6 +378,7 @@ a:hover {
 .text-slider {
     overflow: hidden;
     position: relative;
+    margin-top: -40px;
 }
 
 .text-slider-track {
@@ -397,6 +398,7 @@ a:hover {
     gap: 15px;
     flex-wrap: wrap;
     margin-top: 20px;
+    margin-bottom: -60px;
 }
 
 .cta-button {
@@ -432,25 +434,34 @@ a:hover {
 /* Slider Arrows */
 .slider-arrows {
     display: flex;
-    gap: 15px;
-    margin-left: 20px;
+    gap: 10px;          /* arrows ke beech gap */
+    align-items: center; /* vertically center button ke sath */
 }
 
 .arrow {
-    font-size: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;       /* arrow ki width */
+    height: 50px;      /* arrow ki height */
+    font-size: 24px;   /* arrow symbol ka size */
     cursor: pointer;
     color: #ffffff;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .arrow:hover {
-    color: #f9bf29;
+    color: #000000;
 }
+
+
+
 
 /* Right Image */
 .right-image {
     position: relative;
     text-align: center;
+    margin-top: 50px;
 }
 
 .right-image img {
@@ -605,8 +616,6 @@ a:hover {
 }
 
 
-
-
 /* About */
         .about-container {
             max-width: 1200px;
@@ -683,8 +692,6 @@ a:hover {
     font-size: 2.5rem; /* thoda bara */
     font-weight: normal; /* bold hata diya */
 }
-
-
 
         .step-logo {
             position: absolute;
@@ -898,7 +905,7 @@ a:hover {
 
 /* Stores Section */
 .stores-section {
-    margin-top: 10%;
+    margin-top: 40px;
     background-color: #eff2f1;
     padding-top: 5%;
     
@@ -1039,17 +1046,32 @@ a:hover {
 }
 
 @media (max-width: 576px) {
-    .store-logo {
-        flex: 0 0 calc(50% - 10px); /* 2 per row */
-        max-width: calc(50% - 10px);
-        height: 100px;
-        margin-bottom: 10px;
-    }
+   .store-logos {
+    display: flex;
+    flex-direction: row;    /* ✅ ek line me */
+    flex-wrap: nowrap;      /* ❌ wrap band */
+    overflow-x: auto;       /* ✅ horizontal scroll */
+    overflow-y: hidden;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin: 0;              /* ⬅ extra margin hatado */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    align-items: center;    /* ✅ vertical center logos */
+}
 
-    .store-logo img {
-        max-width: 70%;
-        max-height: 70%;
-    }
+.store-logos::-webkit-scrollbar {
+    display: none;
+}
+
+.store-logo {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 80px;
+    display: flex;                /* ✅ center logo image */
+    align-items: center;
+    justify-content: center;
+}
 
     .stores-section h2 {
         font-size: 1.4rem;
@@ -1072,6 +1094,7 @@ a:hover {
         margin-left: 0;
         margin-right: 0;
         padding-bottom: 10px;
+        margin-bottom: 15px;
     }
 
     .category {
@@ -1241,6 +1264,13 @@ a:hover {
   .video-frame {
     height: 200px;
   }
+    .why-choose-section .section-title {
+    font-size: 30px;      /* thoda chhota text */
+    font-weight: 500;     /* readable weight */
+    margin-bottom: 12px;  /* neeche kam space */
+    text-align: center;   /* center align mobile me */
+    margin-top: -50px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1275,7 +1305,7 @@ a:hover {
 
 /* ===== Popular Product (Reviews Section) ===== */
 .popular-product {
-  padding: 0 20px 7rem 20px;
+  padding: 0 20px 3rem 20px;
   background: #eff2f1;
 }
 
@@ -2145,16 +2175,26 @@ form textarea {
     background: none; /* remove outer design */
     border: none;
     padding: 0;
+}
 
+/* ✅ Mobile screens (max 767px) */
+@media (max-width: 767px) {
+    .pop-up-cont .close {
+        top: -30px;       /* thoda neeche */
+        right: 30px;     /* bilkul right corner ke paas */
+        font-size: 45px; /* chhota button */
+        color: #000;     /* white color (green bg pe visible hoga) */
+    }
 }
 
         @media (min-width: 768px) {
             .pop-up-cont .close { top: 5%; right: 5%; font-size: 30px; margin-left: 10px; }
         }
+         .pop-up-cont .modal-content { border: none; background: transparent; margin-top: 30px; }
         
         .pop-up-cont .modal-header {
             background: #fff; 
-            margin: 0 0 2px 0; 
+            margin: 0; 
             border-radius: 5px;
             padding: 15px;
         }
@@ -2176,8 +2216,6 @@ form textarea {
     line-height: 1.4;         /* ✅ line spacing */
 }
 
-
-        
         .pop-up-cont .steps-cont { 
             margin: 0 0 2px; 
             padding: 2% 0; 
@@ -2437,9 +2475,10 @@ form textarea {
             margin: 0;
         }
         
-        td.small-pane { 
-            width: 20%; 
-        }
+       td.small-pane {
+    width: auto;          /* ✅ fixed 20% hatao */
+    padding: 0;           /* ✅ td ke andar ka space hatao */
+}
         
         .btn-next, 
         .btn-prev { 
@@ -2480,7 +2519,7 @@ form textarea {
             border-radius: 5px;
         }
         @media (min-width: 768px) {
-            .step-content { padding: 20px; }
+            .step-content { padding: 10px; }
         }
         
         .step-content.active {
@@ -2592,13 +2631,15 @@ form textarea {
         
    /* Fix horizontal scroll on mobile */
 @media (max-width: 767px) {
+
+  
     .pop-up-cont {
         padding: 5% 2%; /* reduce horizontal padding */
         overflow-x: hidden;
     }
 
     .pop-up-cont .modal-body {
-        padding: 0 5px; /* prevent content from overflowing */
+        padding: 0; /* prevent content from overflowing */
     }
 
     .table-responsive {
@@ -2606,19 +2647,27 @@ form textarea {
         -webkit-overflow-scrolling: touch;
     }
 
-    .pop-up-cont .steps-cont ul {
-        width: 100%;
-        padding: 0;
-        margin: 0;
+   .pop-up-cont .steps-cont ul {
+    width: calc(100% - 10px);  /* ✅ left 5px + right 5px space */
+    margin: 0 5px;             /* ✅ dono side 5px margin */
+    padding: 0;
+}
+
+
+      .pop-up-cont .steps-cont ul li {
+        flex: 1 0 33.33%;   /* ✅ har step 1/3 width le desktop ki tarah */
+        margin-bottom: 0;  /* ✅ neeche ka gap hatao */
     }
 
-    .pop-up-cont .steps-cont ul li {
-        flex: 1 0 100%; /* stack steps vertically */
-        margin-bottom: 5px;
+    .pop-up-cont .steps-cont ul {
+        flex-wrap: nowrap;  /* ✅ force horizontal */
     }
 
     .pop-up-cont .modal-header {
-        padding: 10px;   /* ✅ input ke liye thoda extra jagah */
+        padding-top: 13px;   /* ✅ input ke liye thoda extra jagah */
+        padding-bottom: 0 !important;
+        margin-bottom: 1.7px;
+
     }
 
     .pop-up-cont .modal-header input {
@@ -2626,30 +2675,59 @@ form textarea {
         min-height: 55px; 
     }
     .pop-up-cont .modal-body table {
-        border-spacing: 15px 15px;   /* ✅ spacing mobile pe chhoti */
+        border-spacing: 8px 8px;   /* ✅ spacing mobile pe chhoti */
     }
 
     .modal textarea {
-        width: 100% !important;      /* ✅ 120% ki jagah full td cover kare */
+        width: 115% !important;      /* ✅ 120% ki jagah full td cover kare */
         font-size: 14px;             /* ✅ thoda readable */
-        min-height: 120px;           /* ✅ chhoti screen pe compact height */
+        min-height: 40px !important;           /* ✅ chhoti screen pe compact height */
     }
 
-
+    /* Mobile Fix for qty (+ 1 -) */
+    .qty {
+    display: flex;              /* ✅ inline-block ki jagah flex */
+    align-items: center;        /* ✅ vertically center */
+    justify-content: center;    /* ✅ center me rakho */
+    gap: 0 !important;                   /* ✅ - 1 + ke beech ka gap control */
 }
 
+.qty .minus,
+.qty .plus {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background: #dee7eb;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    flex-shrink: 0;             /* ✅ size stable rahe */
+}
 
+.qty .count {
+    width: 35px !important;     /* ✅ chhota input */
+    text-align: center;
+    padding: 0;                 /* ✅ andar ka space remove */
+    margin: 0;                  /* ✅ bahar ka space remove */
+    border: none;
+}
 
-
+}
 
 /* ---------- Step Content ---------- */
 .step-content {
     display: none;
-    padding: 20px;
+    padding: 15px;
 }
 .step-content.active {
     display: block;
 }
+
+
+
 
 
 
