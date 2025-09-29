@@ -522,15 +522,9 @@ a:hover {
     display: none !important;
   }
   .slider-arrows {
-        position: absolute;           /* important for proper positioning */
-        top: 50%;                     /* vertical center */
-        left: 0;
-        right: 0;
-        transform: translateY(-50%);  /* center vertically */
-        justify-content: space-between;
-        gap: 5px;
-        padding: 0 10px;              /* optional: left-right spacing */
-        z-index: 10;                  /* above slides/images */
+        gap: 5px;           /* arrows ke beech kam gap */
+        justify-content: space-between; /* left-right edges me arrows */
+        margin-top: -60px;
     }
 
     .arrow {
