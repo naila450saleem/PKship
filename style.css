@@ -629,7 +629,7 @@ a:hover {
         width: 45px;      /* width bara */
         height: 60px;     /* height bara */
         font-size: 28px; 
-        margin-top: -5px;
+        margin-top: -10px;
     }
 }
 @media (max-width: 767px) {
@@ -782,7 +782,7 @@ a:hover {
 
         .order-btn-container {
             text-align: center;
-            margin-top: -8%;
+            margin-top: -12% !important;
             margin-left: -43%;
         }
 
