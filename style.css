@@ -383,6 +383,7 @@ a:hover {
 
 .text-slider-track {
     display: flex;
+       width: 100%;
     transition: transform 0.6s ease;
 }
 
@@ -520,21 +521,47 @@ a:hover {
   .right-image:after {
     display: none !important;
   }
+  .slider-arrows {
+        gap: 5px;           /* arrows ke beech kam gap */
+        justify-content: space-between; /* left-right edges me arrows */
+        margin-top: -60px;
+    }
+
+    .arrow {
+        width: 30px;        /* chhota width */
+        height: 40px;       /* chhota height */
+        font-size: 20px;    /* chhota symbol */
+    }
+
+    .arrow:hover {
+        color: #000000;     /* hover effect same */
+    }
 }
 
+/* Extra small screens (mobile portrait) */
+@media (max-width: 480px) {
+    .slider-arrows {
+        gap: 3px;
+    }
+
+    .arrow {
+        width: 25px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
 
 
 /* Animation: move slide right → left with pause in center */
 .text-slider-track {
-    animation: slideRightLeft 6s ease-in-out infinite;
+    display: flex;
+    animation: slideRightLeft 6s linear infinite;
+}
+@keyframes slideRightLeft {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
-@keyframes slideRightLeft {
-    0%   { transform: translateX(100%); } /* start right */
-    33%  { transform: translateX(0); }   /* reach center */
-    66%  { transform: translateX(0); }   /* pause 2 sec */
-    100% { transform: translateX(-100%); } /* exit left */
-}
 
 
 /* ================== Responsive ================== */
@@ -551,7 +578,7 @@ a:hover {
     .hero-section {
         flex-direction: column;
         text-align: center;
-        padding-top: 45px !important;
+        padding-top: 80px !important;
     }
 
     .hero-content {
@@ -589,6 +616,7 @@ a:hover {
         padding: 12px 80px;
         font-size: 14px;
         margin-right: 0;         /* remove big right margin */
+        margin-bottom: 60px
     }
 
     .right-image {

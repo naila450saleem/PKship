@@ -30,21 +30,31 @@ navLinks.forEach(link => {
   // });
 
   /* ---------------- HERO SLIDER ---------------- */
-  const heroTrack = document.querySelector(".text-slider-track");
-  const heroSlides = document.querySelectorAll(".slider-item");
-  const heroPrev = document.querySelector(".arrow-left");
-  const heroNext = document.querySelector(".arrow-right");
-  let heroIndex = 0;
+  document.addEventListener("DOMContentLoaded", function () {
+    const heroTrack = document.querySelector(".text-slider-track");
+    const heroSlides = document.querySelectorAll(".slider-item");
+    const heroPrev = document.querySelector(".arrow-left");
+    const heroNext = document.querySelector(".arrow-right");
+    let heroIndex = 0;
 
-  function showHeroSlide(i) {
-    heroIndex = (i + heroSlides.length) % heroSlides.length;
-    heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
-  }
+    // Ensure everything exists
+    if (!heroTrack || heroSlides.length === 0 || !heroPrev || !heroNext) {
+        console.warn("Hero slider elements missing!");
+        return;
+    }
 
-  heroPrev.addEventListener("click", () => showHeroSlide(heroIndex - 1));
-  heroNext.addEventListener("click", () => showHeroSlide(heroIndex + 1));
+    function showHeroSlide(i) {
+        heroIndex = (i + heroSlides.length) % heroSlides.length;
+        heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
+    }
 
-  setInterval(() => showHeroSlide(heroIndex + 1), 5000);
+    heroPrev.addEventListener("click", () => showHeroSlide(heroIndex - 1));
+    heroNext.addEventListener("click", () => showHeroSlide(heroIndex + 1));
+
+    // Auto slide every 5 seconds
+    setInterval(() => showHeroSlide(heroIndex + 1), 5000);
+});
+
 
   /* ---------------- CATEGORY FILTER ---------------- */
   // const categories = document.querySelectorAll(".category");
