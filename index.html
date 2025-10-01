@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
@@ -43,67 +44,99 @@
     </a>
 
     <!-- Mobile Toggle -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+    <button 
+      class="navbar-toggler collapsed" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#mainNavbar" 
+      aria-controls="mainNavbar" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Center Nav Links -->
+    <!-- Navbar Collapse -->
     <div class="collapse navbar-collapse" id="mainNavbar">
-    <ul class="navbar-nav mx-auto d-flex align-items-center">
-  <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-   <li class="nav-item separator">|</li>
+      
+      <!-- 📞 Mobile Numbers (collapse ke top par show) -->
+      <div class="d-lg-none text-center w-100 mb-3">
+        <p class="mb-1 fw-bold" style="color:#fff;">📞 021-1234567</p>
+        <p class="mb-0 fw-bold">
+          <a href="https://wa.me/923001234567" target="_blank" style="text-decoration:none; color:#fff;">
+            <i class="fab fa-whatsapp" style="color:#25D366; margin-right:5px;"></i> 0300-1234567
+          </a>
+        </p>
+      </div>
 
-  <li class="nav-item"><a class="nav-link" href="#choose-us">About Us</a></li>
-   <li class="nav-item separator">|</li>
+      <!-- Center Nav Links -->
+      <ul class="navbar-nav mx-auto d-flex align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item separator">|</li>
 
-  <!-- Dropdown Start -->
- <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle custom-toggle" href="#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Our Services <span class="custom-arrow">&rsaquo;</span>
-  </a>
-  
-  <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-    <li><a class="dropdown-item" href="#service1">Service 1</a></li>
-    <li><a class="dropdown-item" href="#service2">Service 2</a></li>
-    <li><a class="dropdown-item" href="#service3">Service 3</a></li>
-  </ul>
-</li>
- <li class="nav-item separator">|</li>
+        <li class="nav-item"><a class="nav-link" href="#choose-us">About Us</a></li>
+        <li class="nav-item separator">|</li>
 
-  <!-- Dropdown End -->
+        <!-- Dropdown Start -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-toggle" href="#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Our Services <span class="custom-arrow">&rsaquo;</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" href="#service1">Service 1</a></li>
+            <li><a class="dropdown-item" href="#service2">Service 2</a></li>
+            <li><a class="dropdown-item" href="#service3">Service 3</a></li>
+          </ul>
+        </li>
+        <li class="nav-item separator">|</li>
+        <!-- Dropdown End -->
 
-  <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-</ul>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
 
-<!-- Right Side: Phone + Account -->
-<div class="d-flex align-items-center">
-  <!-- Phone Numbers -->
-  <span class="phone fw-bold me-3" style="color: #fff;">
-    📞 021-1234567 
-    <span style="margin: 0 10px;">|</span>
-    <a href="https://wa.me/923001234567" target="_blank" style="text-decoration:none; color:#fff;">
-      <i class="fab fa-whatsapp" style="color:#25D366; margin-right:5px;"></i> 0300-1234567
-    </a>
-  </span>
+        <!-- 👤 Account Dropdown (Mobile me yaha collapse ke andar) -->
+        <li class="nav-item dropdown d-lg-none">
+          <a href="#" class="nav-link dropdown-toggle custom-toggle" id="accountDropdownMobile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle" style="font-size: 24px;"></i>
+            <span class="custom-arrow">›</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="accountDropdownMobile">
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Create Account</a></li>
+            <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
+            <li><a class="dropdown-item" href="/account-settings">Account Settings</a></li>
+          </ul>
+        </li>
+      </ul>
 
-<!-- Account Dropdown -->
-<li class="nav-item dropdown list-unstyled d-flex align-items-center">
-  <a href="#" class="nav-link dropdown-toggle custom-toggle" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="bi bi-person-circle" style="font-size: 24px;"></i>
-    <span class="custom-arrow">›</span> <!-- Custom Arrow yaha add kiya -->
-  </a>
+      <!-- Right Side: Phone + Account (Desktop Only) -->
+      <div class="d-none d-lg-flex align-items-center">
+        <!-- Phone Numbers -->
+        <span class="phone fw-bold me-3" style="color: #fff;">
+          📞 021-1234567 
+          <span style="margin: 0 10px;">|</span>
+          <a href="https://wa.me/923001234567" target="_blank" style="text-decoration:none; color:#fff;">
+            <i class="fab fa-whatsapp" style="color:#25D366; margin-right:5px;"></i> 0300-1234567
+          </a>
+        </span>
 
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
-    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
-    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Create Account</a></li>
-    <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
-    <li><a class="dropdown-item" href="/account-settings">Account Settings</a></li>
-  </ul>
-</li>
-</div>
+        <!-- 👤 Account Dropdown -->
+        <li class="nav-item dropdown list-unstyled d-flex align-items-center">
+          <a href="#" class="nav-link dropdown-toggle custom-toggle" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle" style="font-size: 24px;"></i>
+            <span class="custom-arrow">›</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></li>
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Create Account</a></li>
+            <li><a class="dropdown-item" href="/my-orders">My Orders</a></li>
+            <li><a class="dropdown-item" href="/account-settings">Account Settings</a></li>
+          </ul>
+        </li>
+      </div>
     </div>
   </div>
 </nav>
+
+
 
 
 <!-- Login Modal -->
@@ -1040,46 +1073,44 @@ window.addEventListener("click", (e) => {
                     </div>
                     
                     <!-- Step 2: Shipping Info -->
-                    <div class="step-content" id="step2">
-                        <h3>Shipping Information</h3>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" id="fullName" placeholder="Enter your full name">
-                            </div>
-                            <div class="form-group">
-                                <label for="mobile">Mobile</label>
-                                <input type="text" id="mobile" placeholder="Enter your mobile number">
-                            </div>
-                        </div>
+                   <div class="step-content" id="step2">
+    <h3>Shipping Information</h3>
+    <div class="form-row">
+        <div class="form-group">
+            <input type="text" id="fullName" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+            <input type="text" id="mobile" placeholder="Enter your mobile number">
+        </div>
+    </div>
 
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" placeholder="Enter your city">
-                        </div>
+    <div class="form-row">
+        <div class="form-group">
+            <input type="text" id="city" placeholder="Enter your city">
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" placeholder="Enter your email">
+        </div>
+    </div>
 
-                        <div class="form-group">
-                            <label for="email">Email (Optional)</label>
-                            <input type="email" id="email" placeholder="Enter your email">
-                        </div>
+  <div class="form-row">
+    <div class="form-group">
+        <select id="country">
+            <option value="">Select your country</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="ca">Canada</option>
+            <option value="au">Australia</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div class="form-group textarea-small">
+        <textarea id="customContent" rows="4" placeholder="Any additional information..."></textarea>
+    </div>
+</div>
 
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <select id="country">
-                                <option value="">Select your country</option>
-                                <option value="us">United States</option>
-                                <option value="uk">United Kingdom</option>
-                                <option value="ca">Canada</option>
-                                <option value="au">Australia</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
+</div>
 
-                        <div class="form-group">
-                            <label for="customContent">Additional Info</label>
-                            <textarea id="customContent" rows="4" placeholder="Any additional information..."></textarea>
-                        </div>
-                    </div>
                     
                     <!-- Step 3: Submit Order -->
                     <div class="step-content" id="step3">

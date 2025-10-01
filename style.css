@@ -52,19 +52,29 @@ body {
   border-color: white; /* Button ka border white */
 }
 
+/* Default hamburger (3 lines white) */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Default hamburger (3 white lines) */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-/* Jab toggle open ho (collapsed class remove ho jati hai) */
+/* Open hone par Cross (X) */
 .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='3' stroke-linecap='round' d='M6 6L24 24M6 24L24 6'/%3E%3C/svg%3E");
 }
+
+@media (max-width: 991px) {
+  #mainNavbar .d-lg-none {
+    background: #000080; /* navbar color */
+    padding: 10px 0;
+    
+  }
+  #mainNavbar .d-lg-none p {
+    margin: 0;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}
+
 
 
 /* Logo */
@@ -797,7 +807,7 @@ a:hover {
             transition: background-color 0.3s ease, transform 0.3s ease;
             display: inline-block;
             margin-left: -5%;
-           margin-top: 10px !important;
+           margin-top: 70px !important;
           
         }
 
@@ -2199,7 +2209,14 @@ form textarea {
         @media (min-width: 992px) {
             .pop-up-cont { padding: 10%; }
         }
+
         
+        #customContent {
+    width: 100% !important;  /* ya apni marzi ka px/percent */
+  height: 40px;      /* fixed height */
+    min-height: 40px;  /* minimum limit */
+}
+
         .pop-up-cont .modal-content { border: none; background: transparent; }
        .pop-up-cont .close { 
     position: absolute; 

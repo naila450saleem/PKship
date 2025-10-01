@@ -1,22 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-const navLinks = document.querySelectorAll('.navbar .nav-link');
+  const navLinks = document.querySelectorAll('.navbar .nav-link');
 
-// 1️⃣ Website load hote hi Home link active
-window.addEventListener('DOMContentLoaded', () => {
+  // 1️⃣ Website load hote hi Home link active
   const homeLink = document.querySelector('.navbar .nav-link[href="#"]');
-  if(homeLink) homeLink.classList.add('active');
-});
+  if (homeLink) homeLink.classList.add('active');
 
-// 2️⃣ Click event – underline move
-navLinks.forEach(link => {
-  link.addEventListener('click', function() {
-    // Remove active from all links
-    navLinks.forEach(l => l.classList.remove('active'));
-
-    // Add active to clicked link
-    this.classList.add('active');
+  // 2️⃣ Click event – underline move
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
 });
+
 
   
   /* ---------------- NAVBAR SCROLL EFFECT ---------------- */
