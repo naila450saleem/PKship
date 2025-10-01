@@ -1,18 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll('.navbar .nav-link');
 
-  // 1️⃣ Website load hote hi Home link active
-  const homeLink = document.querySelector('.navbar .nav-link[href="#"]');
-  if (homeLink) homeLink.classList.add('active');
-
-  // 2️⃣ Click event – underline move
+  // 1️⃣ Click par active
   navLinks.forEach(link => {
     link.addEventListener('click', function () {
       navLinks.forEach(l => l.classList.remove('active'));
       this.classList.add('active');
     });
   });
+
+  // 2️⃣ Scroll par active
+  const sections = document.querySelectorAll("section[id]"); // jitne bhi <section id="..."> hain
+
+  function updateActiveLink() {
+    let scrollPos = window.scrollY + 100; // navbar ke height adjust karne ke liye
+
+    sections.forEach(section => {
+      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        let id = section.getAttribute("id");
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveLink);
+  updateActiveLink(); // page load pe run ho
 });
+
 
 
   
@@ -105,8 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 5000);
 
   /* ---------------- Stats section ---------------- */
-  
- });
 
 
 // Store Logos

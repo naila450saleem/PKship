@@ -312,6 +312,19 @@ a:hover {
     align-items: center;
     margin-top: 10px;
   }
+    .navbar .nav-link {
+    display: inline-block;   /* underline ke liye block hona zaroori */
+    position: relative;
+    padding-bottom: 8px;     /* thoda gap underline ke liye */
+  }
+
+  .navbar .nav-link::after {
+    bottom: 0;   /* underline text ke bilkul niche */
+  }
+
+  .navbar .nav-link.active::after {
+    width: 100%; /* active link pe underline force */
+  }
 }
 
 
