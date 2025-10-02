@@ -73,6 +73,11 @@ body {
     font-size: 14px;
     margin-top: 5px;
   }
+    .navbar-toggler-icon {
+    width: 18px !important;
+    height: 18px !important;
+    background-size: 18px 18px !important;
+  }
 }
 
 
@@ -330,13 +335,6 @@ a:hover {
 
 
 /* Hero Section */
-/* .hero-section {
-    padding-top: 30px !important;
-    padding-bottom: -30px !important;
-    margin: 0 !important;
-} */
-
-
 .hero-section {
     background: linear-gradient(163deg, #dc3454 62%, #FFFFFF 100%);
     padding: calc(4rem - 30px) 0 0rem 0;
@@ -405,12 +403,15 @@ a:hover {
 }
 
 .text-slider-track {
-    display: flex;
-       width: 100%;
-    transition: transform 0.6s ease;
+     animation: none !important;
+  -webkit-animation: none !important;
+  display: flex;
+  transition: transform 0.6s ease; /* JS ke transform ke liye smooth transition */
+  will-change: transform;
 }
 
 .slider-item {
+  flex: 0 0 100%;
     min-width: 100%;
 }
 
@@ -457,9 +458,10 @@ a:hover {
 
 /* Slider Arrows */
 .slider-arrows {
-    display: flex;
-    gap: 10px;          /* arrows ke beech gap */
-    align-items: center; /* vertically center button ke sath */
+    position: relative;
+  z-index: 20; /* upar rakho taake koi overlay click block na kare */
+  display: flex;
+  gap: 10px;
 }
 
 .arrow {
@@ -470,16 +472,15 @@ a:hover {
     height: 50px;      /* arrow ki height */
     font-size: 24px;   /* arrow symbol ka size */
     cursor: pointer;
-    color: #ffffff;
+    cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
     transition: all 0.3s ease;
 }
 
 .arrow:hover {
     color: #000000;
 }
-
-
-
 
 /* Right Image */
 .right-image {
@@ -648,12 +649,7 @@ a:hover {
         transform: translateY(0);
     }
 
-    .arrow-left {
-        width: 45px;      /* width bara */
-        height: 60px;     /* height bara */
-        font-size: 28px; 
-        margin-top: -10px;
-    }
+  
 }
 @media (max-width: 767px) {
   .hero-section {
@@ -809,27 +805,30 @@ a:hover {
             margin-left: -43%;
         }
 
-        .place-order-btn {
-                 background-color: #1abc9c;
-            color: white;
-            font-size: 1rem;
-            font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-            margin-left: -5%;
-           margin-top: 70px !important;
-          
-        }
+       .place-order-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    margin-top: 5%;
+}
 
-        .place-order-btn:hover {
-            background-color: #16a085;
-            color: white;
-            transform: translateY(-2px);
-            margin-top: 25% !important;
-        }
+.place-order-btn:hover {
+    background: linear-gradient(135deg, #16a085, #1abc9c);
+    transform: translateY(-3px);
+    color: white;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    /* Remove the blink animation completely */
+    animation: none !important;
+}
 
         /* =====================
    Responsive adjustments
@@ -930,6 +929,65 @@ a:hover {
     border: none;
     border-radius: 0 !important;
   }
+
+  /* Default / Desktop */
+.place-order-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    margin-top: 5%;
+}
+
+/* Hover effect */
+.place-order-btn:hover {
+    background: linear-gradient(135deg, #16a085, #1abc9c);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    animation: none !important;
+}
+
+/* Tablet (769px - 992px) */
+@media (max-width: 992px) and (min-width: 769px) {
+    .place-order-btn {
+        display: inline-block;       /* same as desktop */
+        width: auto;                 /* auto width */
+        margin: 0 0;              /* vertical spacing */
+        float: none;                 /* remove any float */
+        text-align: center;          /* text inside button center */
+    }
+
+    .order-btn-container {
+        text-align: center;          /* container center */
+        margin: 20px auto;           /* center container */
+    }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+    .place-order-btn {
+        display: block;
+        width: 80%;                  /* responsive width */
+        margin: 20px auto;           /* center button */
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    .order-btn-container {
+        text-align: center;
+        margin: 0 auto !important;
+        padding: 0 20px;
+    }
+}
+
 
   /* ✅ About Section */
   .about-section header h1,
@@ -1101,7 +1159,7 @@ a:hover {
     .place-order-btn {
         font-size: 0.95rem;
         padding: 10px 24px;
-        margin-top: 20% !important;
+        margin-top: -80% !important;
     }
 }
 
@@ -2192,46 +2250,39 @@ form textarea {
 
 
 /* Modal Popup */
-        .modal-backdrop { background-color: white; }
-        .modal-dialog { 
-            max-width: 95%; 
-            margin: 20px auto;
-        }
-        @media (min-width: 576px) {
-            .modal-dialog { max-width: 90%; }
-        }
-        @media (min-width: 768px) {
-            .modal-dialog { max-width: 85%; }
-        }
-        @media (min-width: 992px) {
-            .modal-dialog { max-width: 80%; }
-        }
-        @media (min-width: 1200px) {
-            .modal-dialog { max-width: 70%; }
-        }
-        
-        .pop-up-cont { 
-            background: rgba(69, 189, 127, 0.9); 
-            padding: 5%; 
-            box-shadow: 0px 1px 10px #5b60fc; 
-            border-radius: 10px;
-        }
-        @media (min-width: 768px) {
-            .pop-up-cont { padding: 8%; }
-        }
-        @media (min-width: 992px) {
-            .pop-up-cont { padding: 10%; }
-        }
+.modal-backdrop { background-color: white; }
+.modal-dialog { 
+    max-width: 95%; 
+    margin: 20px auto;
+}
+@media (min-width: 576px) { .modal-dialog { max-width: 90%; } }
+@media (min-width: 768px) { .modal-dialog { max-width: 85%; } }
+@media (min-width: 992px) { .modal-dialog { max-width: 80%; } }
+@media (min-width: 1200px) { .modal-dialog { max-width: 70%; } }
 
-        
-        #customContent {
-    width: 100% !important;  /* ya apni marzi ka px/percent */
-  height: 40px;      /* fixed height */
-    min-height: 40px;  /* minimum limit */
+.pop-up-cont { 
+    background: rgba(69, 189, 127, 0.9); 
+    padding: 5%; 
+    box-shadow: 0px 1px 10px #5b60fc; 
+    border-radius: 10px;
+}
+@media (min-width: 768px) { .pop-up-cont { padding: 8%; } }
+@media (min-width: 992px) { .pop-up-cont { padding: 10%; } }
+
+#customContent {
+    width: 100% !important;
+    height: 40px;
+    min-height: 40px;
+    margin-top: 0;
 }
 
-        .pop-up-cont .modal-content { border: none; background: transparent; }
-       .pop-up-cont .close { 
+.pop-up-cont .modal-content { 
+    border: none; 
+    background: transparent; 
+    margin-top: 30px; 
+}
+
+.pop-up-cont .close { 
     position: absolute; 
     top: 3%; 
     right: 8%; 
@@ -2239,474 +2290,27 @@ form textarea {
     color: #000; 
     font-size: 24px; 
     z-index: 9999;
-    background: none; /* remove outer design */
+    background: none;
     border: none;
     padding: 0;
 }
 
-/* ✅ Mobile screens (max 767px) */
+/* Mobile screens (max 767px) */
 @media (max-width: 767px) {
     .pop-up-cont .close {
-        top: -30px;       /* thoda neeche */
-        right: 30px;     /* bilkul right corner ke paas */
-        font-size: 45px; /* chhota button */
-        color: #000;     /* white color (green bg pe visible hoga) */
+        top: -30px;
+        right: 30px;
+        font-size: 45px;
+        color: #000;
     }
-}
-
-        @media (min-width: 768px) {
-            .pop-up-cont .close { top: 5%; right: 5%; font-size: 30px; margin-left: 10px; }
-        }
-         .pop-up-cont .modal-content { border: none; background: transparent; margin-top: 30px; }
-        
-        .pop-up-cont .modal-header {
-            background: #fff; 
-            margin: 0; 
-            border-radius: 5px;
-            padding: 15px;
-        }
-        
- .pop-up-cont .modal-header input {
-    width: 100% !important; 
-    font-size: 30px;          /* ✅ bada text */
-    padding: 20px 18px;       /* ✅ box ki height barh gayi */
-    border: none; 
-    outline: none; 
-    border-radius: 6px; 
-    background: #f2f2f2;      /* ✅ grey background */
-    box-sizing: border-box; 
-}
-
-.pop-up-cont .modal-header input::placeholder {
-    color: #999; 
-    font-size: 15px;          /* ✅ placeholder bhi bada */
-    line-height: 1.4;         /* ✅ line spacing */
-}
-
-        .pop-up-cont .steps-cont { 
-            margin: 0 0 2px; 
-            padding: 2% 0; 
-            background: #fff; 
-            border-radius: 5px; 
-        }
-        
-        .pop-up-cont .steps-cont ul { 
-            width: 90%; 
-            margin: 0 auto; 
-            border: 1px solid #72848c; 
-            border-radius: 5px; 
-            display: flex; 
-            flex-wrap: wrap;
-            padding: 0;
-            
-        }
-        
-        .pop-up-cont .steps-cont ul li { 
-            margin: 0; 
-            color: #72848c; 
-            font-size: 10px; 
-            position: relative; 
-            text-align: center; 
-            padding: 8px 0; 
-            flex: 1 0 33.33%; 
-            text-transform: uppercase; 
-            cursor: pointer;
-            list-style: none;
-            
-        }
-
-        .pop-up-cont .modal-body table {
-    border-collapse: separate;
-    border-spacing: 35px 40px; /* horizontal = 0, vertical = 15px */
-}
-
-.modal textarea {
-  width: 120% !important; /* pura td cover kare */
-  font-size: 14px;
-  display: block; /* inline restriction hata dega */
-}
-
-
-
-        @media (min-width: 576px) {
-            .pop-up-cont .steps-cont ul li { font-size: 11px; }
-        }
-        @media (min-width: 768px) {
-            .pop-up-cont .steps-cont ul li { font-size: 12px; padding: 10px 0; }
-        }
-        @media (min-width: 992px) {
-            .pop-up-cont .steps-cont ul li { font-size: 13px; }
-        }
-        
-        .pop-up-cont .steps-cont ul li span { 
-            margin-left: 5px; 
-            height: 20px; 
-            width: 20px; 
-            border-radius: 50%; 
-            background: #72848c; 
-            color: #fff; 
-            margin-right: 5px; 
-            display: inline-block; 
-            line-height: 20px; 
-            font-size: 12px;
-        }
-        @media (min-width: 768px) {
-            .pop-up-cont .steps-cont ul li span { 
-                height: 25px; 
-                width: 25px; 
-                line-height: 25px; 
-                margin-left: 10px; 
-                margin-right: 10px; 
-            }
-        }
-        
-        .pop-up-cont .steps-cont ul li.active-step, 
-        .pop-up-cont .steps-cont ul li:hover {
-            background: #57ccc9;
-            background: -moz-linear-gradient(45deg, #57ccc9 0%, #91e0b5 100%);
-            background: -webkit-linear-gradient(45deg, #57ccc9 0%, #91e0b5 100%);
-            background: linear-gradient(45deg, #57ccc9 0%, #91e0b5 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#57ccc9', endColorstr='#91e0b5', GradientType=1);
-            color: #4f5b60;
-        }
-
-        .pop-up-cont .steps-cont ul li.active-step span, 
-        .pop-up-cont .steps-cont ul li:hover span { 
-            background: white; 
-            color: #000; 
-        }
-        
-        /* Hide the arrow shapes on mobile */
-        .pop-up-cont .steps-cont ul li:after, 
-        .pop-up-cont .steps-cont ul li::before { display: none; }
-        
-        @media (min-width: 992px) {
-            .pop-up-cont .steps-cont ul li:after, 
-            .pop-up-cont .steps-cont ul li::before { display: block; }
-            
-            .pop-up-cont .steps-cont ul li:first-child:after, 
-            .pop-up-cont .steps-cont ul li:first-child::before, 
-            .pop-up-cont .steps-cont ul li.active-step + li::before,
-            .pop-up-cont .steps-cont ul li:hover + li::before {
-                content: ""; 
-                border-left: 0 solid transparent; 
-            }
-            
-            .pop-up-cont .steps-cont ul li:after, 
-            .pop-up-cont .steps-cont ul li::before {
-                content: "";  
-                position: absolute;
-                float: right;
-                border-top: 20px solid transparent;
-                border-bottom: 25px solid transparent;
-                border-left: 24px solid #c4c4c4;
-                top: 0;
-            }
-            
-            .pop-up-cont .steps-cont ul li:after { 
-                z-index: 1;
-                border-left: 24px solid #fff;
-                left: -2px;
-            }
-            
-            .pop-up-cont .steps-cont ul li::before { 
-                z-index: 0; 
-                left: 0; 
-            }
-            
-            .pop-up-cont .steps-cont ul li.active-step + li:after, 
-            .pop-up-cont .steps-cont ul li:hover + li:after {
-                border-left: 24px solid #91e0b5;
-                left: 0; 
-            }
-        }
-        
-        .pop-up-cont .modal-body { 
-            background: #fff; 
-            border-radius: 5px; 
-            padding: 0; 
-        }
-        
-        .pop-up-cont .modal-body thead { 
-            color: #4f5b60; 
-            font-size: 12px; 
-            text-transform: uppercase; 
-        }
-        @media (min-width: 768px) {
-            .pop-up-cont .modal-body thead { font-size: 14px; }
-        }
-        
-        .pop-up-cont .modal-body .table thead th { 
-            border-top: 0px; 
-            border-bottom: 0px; 
-            padding: 12px 8px;
-        }
-        
-        .pop-up-cont .modal-body .table { 
-            margin: 4% 0; 
-        }
-        
-        .pop-up-cont .table td, 
-        .pop-up-cont .table th { 
-            vertical-align: middle; 
-            padding: 12px 8px;
-        }
-        
-        .pop-up-cont .table textarea { 
-            border: 1px solid #a5a5a5; 
-            border-radius: 5px; 
-            resize: none; 
-            padding: 3%; 
-            font-size: 14px; 
-            width: 96%; 
-            height: 80px;
-        }
-        @media (min-width: 768px) {
-            .pop-up-cont .table textarea { height: auto; }
-        }
-        
-        .pop-up-cont .table textarea::placeholder { color: #a5a5a5; }
-        
-        .pop-up-cont .modal-body .table a:hover { text-decoration: none; }
-        
-        .btn-remove { 
-            color: #99abb4; 
-            margin-right: 5px;
-        }
-        
-        .product-dtl img { 
-            display: inline-block; 
-            width: 50px; 
-            height: 50px; 
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        @media (min-width: 768px) {
-            .product-dtl img { width: 60px; height: 60px; }
-        }
-        
-        .product-dtl p { 
-            display: inline-block;  
-            padding: 0 0 0 5%; 
-            font-size: 14px; 
-            color: #4f5b60; 
-            text-align: left;  
-            vertical-align: middle; 
-            margin: 0;
-        }
-        @media (min-width: 768px) {
-            .product-dtl p { font-size: 16px; }
-        }
-        
-        .product-dtl p span { 
-            display: block; 
-            font-size: 11px; 
-            color: #97a9b2; 
-        }
-        @media (min-width: 768px) {
-            .product-dtl p span { font-size: 12px; }
-        }
-        
-        a.product-dtl { padding: 0 0 0 5%; }
-
-        .qty .count {  
-            color: #000; 
-            background: transparent;
-            width: 40px !important;
-        }
-        
-        .qty .plus,
-        .qty .minus {
-            cursor: pointer;
-            display: inline-block;
-            vertical-align: top;
-            color: white;
-            width: 25px;
-            height: 25px;
-            background: #dee7eb;
-            line-height: 25px;
-            text-align: center;
-            border-radius: 50%;
-            font-weight: 900;
-        }
-
-        .qty input {  
-            border: 0;
-            width: 40px;
-            text-align: center;
-        }
-        
-        input::-webkit-outer-spin-button,
-        .qty input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        
-       td.small-pane {
-    width: auto;          /* ✅ fixed 20% hatao */
-    padding: 0;           /* ✅ td ke andar ka space hatao */
-}
-        
-        .btn-next, 
-        .btn-prev { 
-            background: #fff;
-            border: 1px solid transparent; 
-            color: #000; 
-            padding: 8px 20px;
-            border-radius: 4px;
-            margin: 0 5px;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        @media (min-width: 768px) {
-            .btn-next, 
-            .btn-prev { 
-                padding: 10px 25px;
-                font-size: 16px;
-            }
-        }
-        
-        .btn-next:hover, 
-        .btn-prev:hover,
-        .btn-next:focus, 
-        .btn-prev:focus,
-        .btn-next:active, 
-        .btn-prev:active { 
-            background: transparent; 
-            border-color: #fff; 
-            outline: 0; 
-            color: #fff;
-        }
-        
-        /* Step Content Styling */
-        .step-content {
-            display: none;
-            padding: 15px;
-            background: #fff;
-            border-radius: 5px;
-        }
-        @media (min-width: 768px) {
-            .step-content { padding: 10px; }
-        }
-        
-        .step-content.active {
-            display: block;
-        }
-        
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-right: -5px;
-            margin-left: -5px;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-            padding: 0 5px;
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-        @media (min-width: 576px) {
-            .form-group {
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-        }
-        @media (min-width: 768px) {
-            .form-group {
-                flex: 1 0 0%;
-            }
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #4f5b60;
-            font-weight: 500;
-            font-size: 14px;
-        }
-        @media (min-width: 768px) {
-            .form-group label { font-size: 16px; }
-        }
-        
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .form-group.full-width {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-        
-        /* Order Confirmation */
-        .order-confirmation {
-            text-align: center;
-            padding: 20px;
-        }
-        @media (min-width: 768px) {
-            .order-confirmation { padding: 30px; }
-        }
-        
-        .order-id {
-            font-size: 20px;
-            color: #4f5b60;
-            margin-bottom: 15px;
-        }
-        @media (min-width: 768px) {
-            .order-id { font-size: 24px; }
-        }
-        
-        .order-id span {
-            font-weight: bold;
-            color: #45bd7f;
-        }
-        
-        .order-msg {
-            font-size: 16px;
-            color: #72848c;
-        }
-        @media (min-width: 768px) {
-            .order-msg { font-size: 18px; }
-        }
-        
-        /* Modal Footer */
-        .modal-footer {
-            display: flex;
-            justify-content: space-between;
-            background: transparent;
-            border: none;
-            padding: 15px 0 0;
-            flex-wrap: wrap;
-        }
-        
-        .modal-footer .btn {
-            margin: 5px;
-            flex: 1;
-            min-width: 120px;
-        }
-        @media (min-width: 576px) {
-            .modal-footer .btn {
-                flex: 0 0 auto;
-            }
-        }
-        
-   /* Fix horizontal scroll on mobile */
-@media (max-width: 767px) {
-
-  
+    
     .pop-up-cont {
-        padding: 5% 2%; /* reduce horizontal padding */
+        padding: 5% 2%;
         overflow-x: hidden;
     }
 
     .pop-up-cont .modal-body {
-        padding: 0; /* prevent content from overflowing */
+        padding: 0;
     }
 
     .table-responsive {
@@ -2714,75 +2318,867 @@ form textarea {
         -webkit-overflow-scrolling: touch;
     }
 
-   .pop-up-cont .steps-cont ul {
-    width: calc(100% - 10px);  /* ✅ left 5px + right 5px space */
-    margin: 0 5px;             /* ✅ dono side 5px margin */
-    padding: 0;
-}
-
-
-      .pop-up-cont .steps-cont ul li {
-        flex: 1 0 33.33%;   /* ✅ har step 1/3 width le desktop ki tarah */
-        margin-bottom: 0;  /* ✅ neeche ka gap hatao */
-    }
-
     .pop-up-cont .steps-cont ul {
-        flex-wrap: nowrap;  /* ✅ force horizontal */
+        width: calc(100% - 10px);
+        margin: 0 5px;
+        padding: 0;
+        flex-wrap: nowrap;
     }
 
-    .pop-up-cont .modal-header {
-        padding-top: 13px;   /* ✅ input ke liye thoda extra jagah */
+    .pop-up-cont .steps-cont ul li {
+        flex: 1 0 33.33%;
+        margin-bottom: 0;
+    }
+
+    /* .pop-up-cont .modal-header {
+        padding-top: 13px;
         padding-bottom: 0 !important;
         margin-bottom: 1.7px;
-
     }
 
     .pop-up-cont .modal-header input {
-        font-size: 20px;   /* ✅ chhoti screen pe text chhota */
-        min-height: 55px; 
-    }
+        font-size: 20px;
+        min-height: 55px;
+    } */
+    
     .pop-up-cont .modal-body table {
-        border-spacing: 8px 8px;   /* ✅ spacing mobile pe chhoti */
+        border-spacing: 3px 3px !important;
     }
 
     .modal textarea {
-        width: 115% !important;      /* ✅ 120% ki jagah full td cover kare */
-        font-size: 14px;             /* ✅ thoda readable */
-        min-height: 40px !important;           /* ✅ chhoti screen pe compact height */
+        width: 115% !important;
+        font-size: 14px;
+        min-height: 40px !important;
     }
 
-    /* Mobile Fix for qty (+ 1 -) */
     .qty {
-    display: flex;              /* ✅ inline-block ki jagah flex */
-    align-items: center;        /* ✅ vertically center */
-    justify-content: center;    /* ✅ center me rakho */
-    gap: 0 !important;                   /* ✅ - 1 + ke beech ka gap control */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0 !important;
+        
+    }
 }
 
-.qty .minus,
-.qty .plus {
+@media (min-width: 768px) {
+    .pop-up-cont .close { 
+        top: 5%; 
+        right: 5%; 
+        font-size: 30px; 
+        margin-left: 10px; 
+    }
+}
+
+.pop-up-cont .modal-header {
+    background: #fff; 
+    margin: 0; 
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 2px;
+}
+
+.pop-up-cont .modal-header input {
+    width: 280% !important;  /* Laptop/Desktop ke liye */
+    font-size: 30px;
+    padding: 20px 18px;
+    border: none; 
+    outline: none; 
+    border-radius: 6px; 
+    background: #f2f2f2;
+    box-sizing: border-box; 
+    margin-top: 15px;
+}
+
+.pop-up-cont .modal-header input::placeholder {
+    color: #999; 
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* ✅ Mobile ke liye fix */
+@media (max-width: 767px) {
+    .pop-up-cont .modal-header input {
+        width: 105% !important;  /* screen fit hoga */
+        font-size: 18px;         /* readable size */
+        padding: 20px 18px;      /* thoda compact */
+        margin-top: 10px;
+        margin-left: -5px;
+    }
+    
+}
+
+
+.pop-up-cont .steps-cont { 
+    margin: 0 0 2px; 
+    padding: 2% 0; 
+    background: #fff; 
+    border-radius: 5px; 
+}
+
+.pop-up-cont .steps-cont ul { 
+    width: 90%; 
+    margin: 0 auto; 
+    border: 1px solid #72848c; 
+    border-radius: 5px; 
+    display: flex; 
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.pop-up-cont .steps-cont ul li { 
+    margin: 0; 
+    color: #72848c; 
+    font-size: 10px; 
+    position: relative; 
+    text-align: center; 
+    padding: 8px 0; 
+    flex: 1 0 33.33%; 
+    text-transform: uppercase; 
+    cursor: pointer;
+    list-style: none;
+}
+
+@media (min-width: 576px) { .pop-up-cont .steps-cont ul li { font-size: 11px; } }
+@media (min-width: 768px) { .pop-up-cont .steps-cont ul li { font-size: 12px; padding: 10px 0; } }
+@media (min-width: 992px) { .pop-up-cont .steps-cont ul li { font-size: 13px; } }
+
+.pop-up-cont .steps-cont ul li span { 
+    margin-left: 5px; 
+    height: 20px; 
+    width: 20px; 
+    border-radius: 50%; 
+    background: #72848c; 
+    color: #fff; 
+    margin-right: 5px; 
+    display: inline-block; 
+    line-height: 20px; 
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    .pop-up-cont .steps-cont ul li span { 
+        height: 25px; 
+        width: 25px; 
+        line-height: 25px; 
+        margin-left: 10px; 
+        margin-right: 10px; 
+    }
+}
+
+.pop-up-cont .steps-cont ul li.active-step, 
+.pop-up-cont .steps-cont ul li:hover {
+    background: #57ccc9;
+    background: linear-gradient(45deg, #57ccc9 0%, #91e0b5 100%);
+    color: #4f5b60;
+}
+
+.pop-up-cont .steps-cont ul li.active-step span, 
+.pop-up-cont .steps-cont ul li:hover span { 
+    background: white; 
+    color: #000; 
+}
+
+/* Hide arrow shapes on mobile */
+.pop-up-cont .steps-cont ul li:after, 
+.pop-up-cont .steps-cont ul li::before { display: none; }
+
+@media (min-width: 992px) {
+    .pop-up-cont .steps-cont ul li:after, 
+    .pop-up-cont .steps-cont ul li::before { display: block; }
+    
+    .pop-up-cont .steps-cont ul li:first-child:after, 
+    .pop-up-cont .steps-cont ul li:first-child::before, 
+    .pop-up-cont .steps-cont ul li.active-step + li::before,
+    .pop-up-cont .steps-cont ul li:hover + li::before {
+        content: ""; 
+        border-left: 0 solid transparent; 
+    }
+    
+    .pop-up-cont .steps-cont ul li:after, 
+    .pop-up-cont .steps-cont ul li::before {
+        content: "";  
+        position: absolute;
+        float: right;
+        border-top: 20px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-left: 24px solid #c4c4c4;
+        top: 0;
+    }
+    
+    .pop-up-cont .steps-cont ul li:after { 
+        z-index: 1;
+        border-left: 24px solid #fff;
+        left: -2px;
+    }
+    
+    .pop-up-cont .steps-cont ul li::before { 
+        z-index: 0; 
+        left: 0; 
+    }
+    
+    .pop-up-cont .steps-cont ul li.active-step + li:after, 
+    .pop-up-cont .steps-cont ul li:hover + li:after {
+        border-left: 24px solid #91e0b5;
+        left: 0; 
+    }
+}
+
+.pop-up-cont .modal-body { 
+    background: #fff; 
+    border-radius: 5px; 
+    padding: 0; 
+}
+
+.pop-up-cont .modal-body thead {
+    color: #4f5b60;
+    font-size: 12px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.pop-up-cont .modal-body thead th {
+    padding-top: 4px;   /* ✅ default padding kam karke upar le jao */
+    padding-bottom: 6px;
+}
+
+
+@media (min-width: 768px) {
+    .pop-up-cont .modal-body thead { font-size: 14px; }
+}
+
+.pop-up-cont .modal-body .table thead th { 
+    border-top: 0px; 
+    border-bottom: 0px; 
+    padding: 12px 8px;
+}
+
+.pop-up-cont .modal-body .table { 
+    margin: 4% 0; 
+}
+
+.pop-up-cont .table td, 
+.pop-up-cont .table th { 
+    vertical-align: middle; 
+    padding: 12px 8px;
+}
+
+.pop-up-cont .modal-body table {
+    border-collapse: separate;
+    border-spacing: 35px 40px;
+}
+
+.modal textarea {
+    width: 110% !important;
+    font-size: 14px;
+    display: block;
+    margin-top: -35px;
+}
+
+.pop-up-cont .table textarea { 
+    border: 1px solid #a5a5a5; 
+    border-radius: 5px; 
+    resize: none; 
+    padding: 3%; 
+    font-size: 14px; 
+    width: 96%; 
+    height: 80px;
+}
+
+@media (min-width: 768px) {
+    .pop-up-cont .table textarea { height: auto; }
+}
+
+.pop-up-cont .table textarea::placeholder { color: #a5a5a5; }
+.pop-up-cont .modal-body .table a:hover { text-decoration: none; }
+
+.btn-remove { 
+    color: #99abb4; 
+    margin-left: -40px !important;
+}
+
+.product-dtl {
+  display: flex;
+  align-items: center;   /* vertically center */
+  gap: 10px;             /* image aur text ke beech thoda space */
+  text-decoration: none; /* underline hata do */
+  color: #000;           /* text color set karo */
+  margin-top: -60px !important;
+}
+
+.product-dtl img {
+  width: 60px;           /* image size control */
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.product-dtl p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.product-dtl span {
+  display: block;
+  font-size: 12px;
+  color: #666;
+}
+
+
+
+
+/* ✅ Mobile Screens (max 767px) */
+@media (max-width: 767px) {
+  .product-dtl {
+    margin-top: -40px !important; /* ✅ Mobile pe kam margin */
+    gap: 8px;                     /* ✅ Gap reduce */
+    align-items: flex-start;      /* ✅ Top align on mobile */
+  }
+  
+  .product-dtl img {
+    width: 50px;                  /* ✅ Chhoti image mobile pe */
+    height: 50px;                 /* ✅ Fixed height */
+  }
+  
+  .product-dtl p {
+    font-size: 13px;              /* ✅ Chhota text */
+    line-height: 1.3;
+  }
+  
+  .product-dtl span {
+    font-size: 11px;              /* ✅ Chhota sub-text */
+    line-height: 1.2;
+  }
+}
+
+/* ✅ Tablet Screens (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .product-dtl {
+    margin-top: -50px !important; /* ✅ Tablet ke liye medium margin */
+    gap: 12px;                    /* ✅ Thora bada gap */
+  }
+  
+  .product-dtl img {
+    width: 65px;                  /* ✅ Tablet pe thora bada image */
+    height: 65px;
+  }
+  
+  .product-dtl p {
+    font-size: 15px;              /* ✅ Tablet pe thora bada text */
+  }
+  
+  .product-dtl span {
+    font-size: 13px;              /* ✅ Tablet pe thora bada sub-text */
+  }
+}
+
+/* ✅ Desktop Screens (992px and above) */
+@media (min-width: 992px) {
+  .product-dtl {
+    margin-top: -60px !important; /* ✅ Desktop pe original margin */
+    gap: 15px;                    /* ✅ Maximum gap */
+  }
+  
+  .product-dtl img {
+    width: 60px;                  /* ✅ Desktop pe bada image */
+    height: 60px;
+  }
+  
+  .product-dtl p {
+    font-size: 14px;              /* ✅ Desktop pe bada text */
+    line-height: 1.5;
+  }
+  
+  .product-dtl span {
+    font-size: 14px;              /* ✅ Desktop pe bada sub-text */
+    line-height: 1.4;
+  }
+}
+
+/* ✅ Extra Small Mobile (max 480px) */
+@media (max-width: 480px) {
+  .product-dtl {
+    margin-top: -30px !important; /* ✅ Very small screens pe aur kam margin */
+    gap: 6px;                     /* ✅ Minimum gap */
+  }
+  
+  .product-dtl img {
+    width: 45px;                  /* ✅ Aur chhoti image */
+    height: 45px;
+  }
+  
+  .product-dtl p {
+    font-size: 12px;              /* ✅ Aur chhota text */
+  }
+  
+  .product-dtl span {
+    font-size: 10px;              /* ✅ Aur chhota sub-text */
+  }
+}
+
+/* ✅ Landscape Mobile (max 767px and height max 600px) */
+@media (max-width: 767px) and (max-height: 600px) {
+  .product-dtl {
+    margin-top: -25px !important; /* ✅ Landscape mode pe kam margin */
+  }
+  
+  .product-dtl img {
+    width: 40px;                  /* ✅ Landscape pe compact image */
+    height: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+    .product-dtl p span { font-size: 8px; }
+}
+
+a.product-dtl { padding: 0 0 0 5%; }
+
+.qty .count {  
+    color: #000; 
+    background: transparent;
+    width: 40px !important;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.qty .plus,
+.qty .minus {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000 !important; /* ✅ Color fixed kiya */
     width: 25px;
     height: 25px;
-    line-height: 25px;
+    background: #dee7eb;
+    line-height: 1;
     text-align: center;
     border-radius: 50%;
-    background: #dee7eb;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    flex-shrink: 0;             /* ✅ size stable rahe */
-}
-
-.qty .count {
-    width: 35px !important;     /* ✅ chhota input */
-    text-align: center;
-    padding: 0;                 /* ✅ andar ka space remove */
-    margin: 0;                  /* ✅ bahar ka space remove */
+    font-weight: 900;
     border: none;
+    padding: 0;
+    margin: 0;
 }
 
+.qty input {  
+    border: 0;
+    width: 40px;
+    text-align: center;
+    background: transparent;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
 }
+
+/* ✅ Mobile Screens (max 767px) */
+@media (max-width: 767px) {
+    .qty {
+        gap: 6px;
+    }
+    
+    .qty .plus,
+    .qty .minus {
+        width: 22px;
+        height: 22px;
+        font-size: 14px;
+    }
+    
+    .qty input {  
+        width: 35px;
+        font-size: 14px;
+    }
+}
+
+/* ✅ Tablet Screens (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .qty {
+        gap: 10px;
+    }
+    
+    .qty .plus,
+    .qty .minus {
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+    }
+    
+    .qty input {  
+        width: 42px;
+        font-size: 15px;
+    }
+}
+
+/* ✅ Desktop Screens (992px and above) */
+@media (min-width: 992px) {
+    .qty {
+        gap: 12px;
+    }
+    
+    .qty .plus,
+    .qty .minus {
+        width: 28px;
+        height: 28px;
+        font-size: 18px;
+        margin-top: -40px;
+    }
+    
+    .qty input {  
+        width: 45px;
+        font-size: 16px;
+        margin-top: -40px;
+    }
+}
+
+/* ✅ Extra Small Mobile (max 480px) */
+@media (max-width: 480px) {
+    .qty {
+        gap: 4px;
+    }
+    
+    .qty .plus,
+    .qty .minus {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+    
+    .qty input {  
+        width: 30px;
+        font-size: 13px;
+    }
+}
+
+/* ✅ Fix for specific devices */
+.qty .count::-webkit-outer-spin-button,
+.qty .count::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.qty .count[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* ✅ Ensure perfect vertical alignment */
+td.small-pane {
+    vertical-align: middle !important;
+}
+
+td.small-pane .qty {
+    align-items: center;
+    height: 100%;
+}
+
+/* ✅ Fix for iOS devices */
+@supports (-webkit-touch-callout: none) {
+    .qty .plus,
+    .qty .minus {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .qty input {
+        -webkit-appearance: none;
+    }
+}
+
+/* ✅ Fix for Android devices */
+@supports (-webkit-overflow-scrolling: touch) {
+    .qty {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
+
+input::-webkit-outer-spin-button,
+.qty input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+td.small-pane {
+    width: auto;
+    padding: 0;
+}
+
+/* Container for buttons */
+.btn-container {
+    display: flex;
+    justify-content: space-between; /* left & right alignment */
+    align-items: center;
+    padding: 0 10px; /* optional spacing */
+}
+
+/* Buttons default style */
+.btn-next, 
+.btn-prev { 
+    background: #fff;
+    border: 1px solid transparent; 
+    color: #000; 
+    padding: 4px 20px;
+    border-radius: 40px;
+    font-size: 14px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+/* Hover / focus / active effects */
+.btn-next:hover, 
+.btn-prev:hover,
+.btn-next:focus, 
+.btn-prev:focus,
+.btn-next:active, 
+.btn-prev:active { 
+    background: transparent; 
+    border-color: #fff; 
+    outline: 0; 
+    color: #fff;
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+    .btn-prev,
+    .btn-next {
+        width: 25%;       
+        padding: 6px 0;   
+        font-size: 12px;
+        margin: 0;        
+        text-align: center;
+    }
+}
+
+/* Tablets / small desktops */
+@media (min-width: 768px) {
+    .btn-next, 
+    .btn-prev { 
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}
+
+/* Default for all pages */
+.btn-container {
+    display: flex;
+    justify-content: space-between; /* previous-left, next-right */
+    align-items: right;
+    padding: 0 10px;
+}
+
+/* Sirf first page ka next button right */
+.first-page .btn-prev {
+    display: none !important; /* agar first page pe previous button nahi dikhana ho */
+}
+
+.first-page .btn-next {
+    margin-left: auto !important; /* push to right */
+}
+
+
+
+/* Desktop / default */
+.btn-submit {
+    display: inline-block;        /* agar JS ya condition se show karna ho */
+    background: #fff;             /* button background */
+    color: #000;                  /* text color */
+    border: 1px solid transparent;
+    padding: 8px 20px;            /* desktop padding */
+    border-radius: 40px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Hover effect */
+.btn-submit:hover {
+    background: transparent;             /* background change on hover */
+    color: #fff;                  /* text color change */
+    border-color: #fff;
+    margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+    .btn-submit {
+        padding: 6px 15px;       /* thoda chhota padding */
+        font-size: 12px;         /* chhota font */
+        width: auto;             /* auto width for content */
+        display: inline-block;   /* inline-block to align right */
+        margin: 10px 0 10px auto; /* top/bottom 10px, left auto -> push right */
+        text-align: center;      /* text inside button center */
+    }
+}
+
+
+
+/* Step Content */
+.step-content {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+    .step-content { padding: 10px; }
+}
+
+.step-content.active { display: block; }
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    padding: 0 5px;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 576px) {
+    .form-group {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .form-group { flex: 1 0 0%; }
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4f5b60;
+    font-Weight: 500;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .form-group label { font-size: 16px; }
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group.full-width {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* Order Confirmation */
+.order-confirmation {
+    text-align: center;
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .order-confirmation { padding: 30px; }
+}
+
+.order-id {
+    font-size: 20px;
+    color: #4f5b60;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .order-id { font-size: 24px; }
+}
+
+.order-id span {
+    font-weight: bold;
+    color: #45bd7f;
+}
+
+.order-msg {
+    font-size: 16px;
+    color: #72848c;
+}
+
+@media (min-width: 768px) {
+    .order-msg { font-size: 18px; }
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    padding: 15px 0 0;
+    flex-wrap: wrap;
+}
+
+.modal-footer .btn {
+    margin: 5px;
+    flex: 1;
+    min-width: 120px;
+}
+
+@media (min-width: 576px) {
+    .modal-footer .btn { flex: 0 0 auto; }
+}
+
+/* Qty buttons for mobile */
+@media (max-width: 767px) {
+    .qty .minus,
+    .qty .plus {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        border-radius: 50%;
+        background: #dee7eb;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    .qty .count {
+        width: 35px !important;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+}
+
+.c {
+  width: 100%;
+  border-collapse: collapse;   /* ✅ saari lines merge ho jaayengi */
+}
+
+.c th,
+.c td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* ✅ ek hi line across full row */
+  text-align: left;
+  vertical-align: top;
+}
+
+/* agar sirf header aur rows ke beech line chahiye, last row ke neeche nahi */
+.c tbody tr:last-child td {
+  border-bottom: none;
+}
+
 
 /* ---------- Step Content ---------- */
 .step-content {
