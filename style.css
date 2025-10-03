@@ -669,6 +669,50 @@ a:hover {
   }
 }
 
+@media (max-width: 1024px) and (min-width: 768px) {
+    /* Hide the right image */
+    .hero-section .right-image {
+        display: none;
+    }
+
+    /* Stack button and arrows vertically */
+    .hero-section .cta-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the button */
+        margin-top: 20px;
+    }
+
+    /* Arrows left-aligned below button */
+    .hero-section .slider-arrows {
+        display: flex;
+        justify-content: flex-start; /* Left align arrows */
+        width: 100%; /* full width so left alignment works */
+        margin-top: -10%;
+        padding-left: 80%; /* optional, adjust if needed */
+        margin-bottom: 40px;
+    }
+}
+
+/* hero */
+/* iPad specific adjustments */
+@media (max-width: 1024px) and (min-width: 768px) {
+    /* Make sure the button container is visible */
+    .about-section .order-btn-container {
+        display: block;       /* ensure it's not hidden */
+        text-align: center;   /* center the button */
+        margin: 20px 0;       /* add some spacing */
+        margin-top: 70%;
+    }
+
+    /* Optional: ensure video section has proper spacing */
+    .about-section .video-section {
+        margin-bottom: 20px;
+    }
+}
+
+
+
 
 /* About */
         .about-container {
