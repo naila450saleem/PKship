@@ -695,21 +695,71 @@ a:hover {
 }
 
 /* hero */
-/* iPad specific adjustments */
 @media (max-width: 1024px) and (min-width: 768px) {
-    /* Make sure the button container is visible */
+    /* Ensure main content and button container are visible */
+    .about-section .main-content,
+    .about-section .video-section,
     .about-section .order-btn-container {
-        display: block;       /* ensure it's not hidden */
-        text-align: center;   /* center the button */
-        margin: 20px 0;       /* add some spacing */
-        margin-top: 70%;
+        display: block !important;   /* force visibility */
+        width: 100%;
     }
 
-    /* Optional: ensure video section has proper spacing */
+    /* Ensure the button is visible and centered */
+    .about-section .place-order-btn {
+        display: inline-block !important;
+        text-align: center;
+        margin: 20px auto 0 auto;
+        z-index: 10; /* bring above other content if needed */
+    }
+
+    /* Optional: spacing between video and button */
     .about-section .video-section {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        margin-top: 20px;
     }
 }
+
+/* Modal */
+/* iPad adjustments for modal input */
+/* iPad specific width fix */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .pop-up-cont .modal-header input {
+        width: 100% !important; /* make input fit container */
+        max-width: 220%;        /* prevent overflow */
+        box-sizing: border-box; /* include padding in width */
+    }
+}
+
+/* Contact Us */
+/* iPad specific adjustments */
+@media (max-width: 1024px) and (min-width: 768px) {
+    /* Ensure form rows stack nicely */
+    #contactForm .form-row {
+        display: flex;
+        flex-direction: column; /* stack inputs vertically */
+        gap: 15px;              /* spacing between inputs */
+        width: 100%;
+    }
+
+    /* Make inputs and textarea full width */
+    #contactForm input,
+    #contactForm textarea {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 16px;
+        box-sizing: border-box; /* include padding in width */
+    }
+
+    /* Button full width */
+    #contactForm .form-btn button {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 16px;
+    }
+}
+
+
+
 
 
 
